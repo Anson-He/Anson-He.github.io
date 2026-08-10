@@ -1,8 +1,5 @@
 # Header navigation for Yuhao He's academic homepage.
 main:
-  - title: "🔬 Research"
-    url: /research/
-
   - title: "📚 Publications"
     url: /publications/
 

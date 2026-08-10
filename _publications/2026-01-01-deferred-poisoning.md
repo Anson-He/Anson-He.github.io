@@ -7,9 +7,39 @@ excerpt: "A stealthy training-time poisoning attack that preserves normal valida
 date: 2026-01-01
 venue: "Proceedings of the 40th AAAI Conference on Artificial Intelligence (AAAI 2026)"
 paperurl: "https://doi.org/10.1609/aaai.v40i26.39318"
+authors: "Yuhao He, Jinyu Tian, Xianwei Zheng, Li Dong, Yuanman Li, and Jiantao Zhou"
+abstract: "Recent studies have shown that deep learning models are very vulnerable to poisoning attacks. Many defense methods have been proposed to address this issue. However, traditional poisoning attacks are not as threatening as commonly believed. This is because they often cause differences in how the model performs on the training set compared to the validation set. Such inconsistency can alert defenders that their data has been poisoned, allowing them to take the necessary defensive actions. In this paper, we introduce a more threatening type of poisoning attack called the Deferred Poisoning Attack. This new attack allows the model to function normally during the training and validation phases but makes it very sensitive to evasion attacks or even natural noise. We achieve this by ensuring the poisoned model's loss function has a similar value as a normally trained model at each input sample but with a large local curvature. A similar model loss ensures that there is no obvious inconsistency between the training and validation accuracy, demonstrating high stealthiness. On the other hand, the large curvature implies that a small perturbation may cause a significant increase in model loss, leading to substantial performance degradation, which reflects a worse robustness. We fulfill this purpose by making the model have singular Hessian information at the optimal point via our proposed Singularization Regularization term. We have conducted both theoretical and empirical analyses of the proposed method and validated its effectiveness through experiments on image classification tasks. Furthermore, we have confirmed the hazards of this form of poisoning attack under more general scenarios using natural noise, offering a new perspective for research in the field of security."
+image: "/images/publications/deferred-poisoning-figure-1.png"
+image_alt: "Figure 1 from Deferred Poisoning, showing the deferred poisoning deployment scenario."
+links: [{"label": "Paper", "url": "https://doi.org/10.1609/aaai.v40i26.39318"}, {"label": "arXiv", "url": "https://arxiv.org/abs/2411.03752"}, {"label": "Code", "url": "https://github.com/Anson-He/Deferred-Poisoning-Attack"}, {"label": "MUST News", "url": "https://sgs.must.edu.mo/news.school.news/article/view/id-39098.html"}, {"label": "DBLP", "url": "https://dblp.org/rec/conf/aaai/HeTZDLZ26"}]
 citation: "<strong>Yuhao He</strong>, Jinyu Tian, Xianwei Zheng, Li Dong, Yuanman Li, and Jiantao Zhou. (2026). &quot;Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization.&quot; <i>Proceedings of the 40th AAAI Conference on Artificial Intelligence (AAAI 2026)</i>, 21681–21689."
 dblp_key: "conf/aaai/HeTZDLZ26"
 generated_by: dblp_sync
+bibtex: |-
+  @inproceedings{DBLP:conf/aaai/HeTZDLZ26,
+    author       = {Yuhao He and
+                    Jinyu Tian and
+                    Xianwei Zheng and
+                    Li Dong and
+                    Yuanman Li and
+                    Jiantao Zhou},
+    editor       = {Sven Koenig and
+                    Chad Jenkins and
+                    Matthew E. Taylor},
+    title        = {Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization},
+    booktitle    = {Fortieth {AAAI} Conference on Artificial Intelligence, Thirty-Eighth
+                    Conference on Innovative Applications of Artificial Intelligence,
+                    Sixteenth Symposium on Educational Advances in Artificial Intelligence,
+                    {AAAI} 2026, Singapore, January 20-27, 2026},
+    pages        = {21681--21689},
+    publisher    = {{AAAI} Press},
+    year         = {2026},
+    url          = {https://doi.org/10.1609/aaai.v40i26.39318},
+    doi          = {10.1609/AAAI.V40I26.39318},
+    timestamp    = {Fri, 27 Mar 2026 00:00:00 +0100},
+    biburl       = {https://dblp.org/rec/conf/aaai/HeTZDLZ26.bib},
+    bibsource    = {dblp computer science bibliography, https://dblp.org}
+  }
 ---
 
 This work introduces the Deferred Poisoning Attack, which makes a trained model highly sensitive to evasion attacks or natural noise while maintaining apparently normal behavior during training and validation. The method uses singularization regularization to reshape local curvature near the optimum.

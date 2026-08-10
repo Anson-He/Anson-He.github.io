@@ -7,17 +7,17 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. student in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en). My research focuses on **adversarial machine learning**, **AIGC security**, and **LLM security**.
+I am a Ph.D. student in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en). My research focuses on **AIGC security**, **visual content protection**, and **LLM security**.
 
-My current work investigates how learning systems can be compromised at training time and how visual content can be protected from malicious generative editing. I am interested in both the foundations of model vulnerability and practical defenses for secure and trustworthy AI.
+My current work focuses on protecting visual content from malicious generative editing and improving the security and trustworthiness of modern AI systems. I am particularly interested in robust content protection, AIGC security, and the safety of large language models.
 
 🔬 Research Interests
 ======
 
-- Adversarial machine learning and model robustness
-- Data poisoning and training-time attacks
-- Security and safety of AI-generated content
-- Large language model security
+- AIGC security and visual content protection
+- Adversarial robustness of generative models
+- Large language model security and safety
+- Secure and trustworthy AI
 
 📰 News
 ======
@@ -31,10 +31,15 @@ My current work investigates how learning systems can be compromised at training
 {% endfor %}
 </ul>
 
-🏫 Current Affiliation
+🎓 Education
 ======
 
-- **Ph.D. student**, Faculty of Innovation Engineering, Macau University of Science and Technology
+- **Ph.D. in Artificial Intelligence**, Faculty of Innovation Engineering<br>
+  Macau University of Science and Technology, Macau, China · Sept. 2025 – present
+- **M.S. in Intelligent Technology**, Faculty of Innovation Engineering<br>
+  Macau University of Science and Technology, Macau, China · Sept. 2023 – Jun. 2025
+- **B.S. in Mathematics and Applied Mathematics (AI Innovation Class)**, Department of Mathematics and Big Data<br>
+  Foshan University, Guangdong, China · Sept. 2019 – Jun. 2023
 
 🔗 Academic Profiles
 ======

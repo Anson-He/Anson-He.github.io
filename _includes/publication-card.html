@@ -1,0 +1,44 @@
+{% assign publication = include.publication %}
+{% assign abstract_words = publication.abstract | number_of_words %}
+<article class="publication-card">
+  {% if publication.image %}
+    <a class="publication-card__media" href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ publication.title }}">
+      <img src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy">
+    </a>
+  {% endif %}
+
+  <div class="publication-card__content">
+    <p class="publication-card__meta">{{ publication.venue }} · {{ publication.date | date: "%Y" }}</p>
+    <h2 class="publication-card__title"><a href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a></h2>
+    {% if publication.authors %}<p class="publication-card__authors">{{ publication.authors }}</p>{% endif %}
+
+    {% if publication.abstract %}
+      {% if abstract_words > 65 %}
+        <details class="publication-card__abstract">
+          <summary>
+            <span class="publication-card__abstract-preview">{{ publication.abstract | truncatewords: 55 }}</span>
+            <span class="publication-card__details-label" aria-hidden="true"></span>
+          </summary>
+          <p>{{ publication.abstract }}</p>
+        </details>
+      {% else %}
+        <p class="publication-card__abstract-full">{{ publication.abstract }}</p>
+      {% endif %}
+    {% endif %}
+
+    {% if publication.links %}
+      <div class="publication-card__links" aria-label="Publication links">
+        {% for link in publication.links %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if publication.bibtex %}
+      <details class="publication-card__bibtex">
+        <summary>Official BibTeX</summary>
+        <pre><code>{{ publication.bibtex | escape }}</code></pre>
+      </details>
+    {% endif %}
+  </div>
+</article>

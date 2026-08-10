@@ -23,7 +23,7 @@ repository               : "Anson-He/Anson-He.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.svg"
+  avatar           : "google-scholar-avatar.jpg"
   name             : "Yuhao He | 何宇浩"
   pronouns         :
   bio              : "🎓 Ph.D. student working on secure and trustworthy AI"

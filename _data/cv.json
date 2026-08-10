@@ -4,7 +4,7 @@
     "email": "",
     "phone": "",
     "website": "https://anson-he.github.io",
-    "summary": "Ph.D. student at Macau University of Science and Technology researching adversarial machine learning, AIGC security, and LLM security.",
+    "summary": "Ph.D. student at Macau University of Science and Technology researching AIGC security, visual content protection, LLM security, and trustworthy AI.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -39,31 +39,49 @@
   "education": [
     {
       "institution": "Macau University of Science and Technology",
-      "area": "Faculty of Innovation Engineering",
-      "studyType": "Ph.D. student",
-      "startDate": "",
-      "endDate": "",
+      "area": "Artificial Intelligence, Faculty of Innovation Engineering",
+      "studyType": "Ph.D.",
+      "startDate": "2025-09",
+      "endDate": "Present",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "Macau University of Science and Technology",
+      "area": "Intelligent Technology, Faculty of Innovation Engineering",
+      "studyType": "M.S.",
+      "startDate": "2023-09",
+      "endDate": "2025-06",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "Foshan University",
+      "area": "Mathematics and Applied Mathematics (AI Innovation Class), Department of Mathematics and Big Data",
+      "studyType": "B.S.",
+      "startDate": "2019-09",
+      "endDate": "2023-06",
       "gpa": null,
       "courses": []
     }
   ],
   "skills": [
     {
-      "name": "Adversarial Machine Learning",
+      "name": "AIGC Security and Visual Content Protection",
       "level": "Research",
-      "keywords": ["data poisoning", "model robustness", "evasion attacks"]
+      "keywords": ["malicious generative editing", "content protection", "generative model robustness"]
     },
     {
-      "name": "AI Security",
+      "name": "Secure and Trustworthy AI",
       "level": "Research",
-      "keywords": ["AIGC security", "LLM security", "trustworthy AI"]
+      "keywords": ["LLM security", "AI safety", "trustworthy AI"]
     }
   ],
   "languages": [],
   "interests": [
     {
       "name": "Secure and Trustworthy AI",
-      "keywords": ["adversarial machine learning", "AIGC security", "LLM security"]
+      "keywords": ["AIGC security", "visual content protection", "generative model robustness", "LLM security"]
     }
   ],
   "references": [],

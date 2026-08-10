@@ -22,6 +22,7 @@ from typing import Iterable
 
 DEFAULT_DBLP_PID = "257/8328-1"
 DEFAULT_SOURCE = f"https://dblp.org/pid/{DEFAULT_DBLP_PID}.xml"
+DEFAULT_BIB_SOURCE = f"https://dblp.org/pid/{DEFAULT_DBLP_PID}.bib"
 GENERATED_BY = "dblp_sync"
 USER_AGENT = "Anson-He-Academic-Homepage/1.0 (publication metadata sync)"
 MONTHS = {
@@ -56,13 +57,13 @@ class Publication:
     paper_url: str
 
 
-def fetch_source(source: str) -> bytes:
+def fetch_source(source: str, accept: str = "application/xml") -> bytes:
     if not source.startswith(("http://", "https://")):
         return Path(source).read_bytes()
 
     request = urllib.request.Request(
         source,
-        headers={"Accept": "application/xml", "User-Agent": USER_AGENT},
+        headers={"Accept": accept, "User-Agent": USER_AGENT},
     )
     for attempt in range(3):
         try:
@@ -129,6 +130,19 @@ def parse_publications(xml_data: bytes) -> list[Publication]:
             )
         )
     return publications
+
+
+def parse_bibtex_entries(bib_data: bytes) -> dict[str, str]:
+    """Split DBLP's person-level BibTeX export into records keyed by DBLP key."""
+    text = bib_data.decode("utf-8")
+    starts = list(re.finditer(r"(?m)^@\w+\{DBLP:([^,]+),", text))
+    entries: dict[str, str] = {}
+    for index, match in enumerate(starts):
+        end = starts[index + 1].start() if index + 1 < len(starts) else len(text)
+        entry = text[match.start():end].strip()
+        if entry:
+            entries[match.group(1)] = entry
+    return entries
 
 
 def normalized_title(title: str) -> str:
@@ -217,7 +231,12 @@ def yaml_string(value: str) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
-def render_publication(publication: Publication, override: dict, target_pid: str) -> tuple[str, dict]:
+def render_publication(
+    publication: Publication,
+    override: dict,
+    target_pid: str,
+    bibtex: str = "",
+) -> tuple[str, dict]:
     title = override.get("title") or publication.title
     date = publication_date(publication, override)
     slug = override.get("slug") or slugify(title)
@@ -227,6 +246,12 @@ def render_publication(publication: Publication, override: dict, target_pid: str
     venue = override.get("venue") or venue_for(publication)
     paper_url = override.get("paperurl") or publication.paper_url
     excerpt = override.get("excerpt") or "Publication metadata synchronized automatically from DBLP."
+    abstract = override.get("abstract") or override.get("description") or (
+        "Abstract not yet available. Please follow the paper link for the latest details."
+    )
+    image = override.get("image") or "/images/publications/publication-placeholder.svg"
+    image_alt = override.get("image_alt") or f"Preview image for {title}."
+    authors = override.get("authors") or join_authors([name for _, name in publication.authors])
     description = override.get("description") or (
         "This publication entry is synchronized automatically from DBLP. "
         "Please follow the links below for the latest bibliographic details."
@@ -247,16 +272,28 @@ def render_publication(publication: Publication, override: dict, target_pid: str
         f"date: {date}",
         f"venue: {yaml_string(venue)}",
         f"paperurl: {yaml_string(paper_url)}",
+        f"authors: {yaml_string(authors)}",
+        f"abstract: {yaml_string(abstract)}",
+        f"image: {yaml_string(image)}",
+        f"image_alt: {yaml_string(image_alt)}",
+        f"links: {json.dumps(links, ensure_ascii=False)}",
         f"citation: {yaml_string(citation_for(publication, title, venue, target_pid))}",
         f"dblp_key: {yaml_string(publication.key)}",
         f"generated_by: {GENERATED_BY}",
-        "---",
-        "",
-        description.strip(),
-        "",
-        " ".join(f"[[{item['label']}]]({item['url']})" for item in links),
-        "",
     ]
+    if bibtex:
+        front_matter.append("bibtex: |-")
+        front_matter.extend(f"  {line}" for line in bibtex.splitlines())
+    front_matter.extend(
+        [
+            "---",
+            "",
+            description.strip(),
+            "",
+            " ".join(f"[[{item['label']}]]({item['url']})" for item in links),
+            "",
+        ]
+    )
     code_url = next((item["url"] for item in links if item["label"].lower() == "code"), "")
     news = {
         "year": str(publication.year),
@@ -310,7 +347,12 @@ def update_heartbeat(root: Path, interval_days: int = 45) -> bool:
     return True
 
 
-def sync(root: Path, publications: list[Publication], target_pid: str) -> tuple[int, int]:
+def sync(
+    root: Path,
+    publications: list[Publication],
+    target_pid: str,
+    bibtex_entries: dict[str, str] | None = None,
+) -> tuple[int, int]:
     if not publications:
         raise RuntimeError("DBLP returned no publications; refusing to modify the site")
     if not any(pid == target_pid for publication in publications for pid, _ in publication.authors):
@@ -321,9 +363,15 @@ def sync(root: Path, publications: list[Publication], target_pid: str) -> tuple[
     output_dir.mkdir(parents=True, exist_ok=True)
     expected: set[Path] = set()
     news_items: list[dict] = []
+    bibtex_entries = bibtex_entries or {}
 
     for publication in deduplicate(publications):
-        content, metadata = render_publication(publication, overrides.get(publication.key, {}), target_pid)
+        content, metadata = render_publication(
+            publication,
+            overrides.get(publication.key, {}),
+            target_pid,
+            bibtex_entries.get(publication.key, ""),
+        )
         path = output_dir / metadata["filename"]
         path.write_text(content, encoding="utf-8")
         expected.add(path.resolve())
@@ -345,6 +393,10 @@ def sync(root: Path, publications: list[Publication], target_pid: str) -> tuple[
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", default=os.environ.get("DBLP_SOURCE", DEFAULT_SOURCE))
+    parser.add_argument(
+        "--bib-source",
+        default=os.environ.get("DBLP_BIB_SOURCE", DEFAULT_BIB_SOURCE),
+    )
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--pid", default=DEFAULT_DBLP_PID)
     return parser.parse_args()
@@ -354,7 +406,10 @@ def main() -> int:
     args = parse_args()
     try:
         records = parse_publications(fetch_source(args.source))
-        written, removed = sync(args.root.resolve(), records, args.pid)
+        bibtex_entries = parse_bibtex_entries(
+            fetch_source(args.bib_source, accept="application/x-bibtex")
+        )
+        written, removed = sync(args.root.resolve(), records, args.pid, bibtex_entries)
     except Exception as error:  # Surface a concise message in GitHub Actions logs.
         print(f"Publication sync failed: {error}", file=sys.stderr)
         return 1
