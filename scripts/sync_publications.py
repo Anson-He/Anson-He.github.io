@@ -264,8 +264,16 @@ def render_publication(
     abstract = override.get("abstract") or override.get("description") or (
         "Abstract not yet available. Please follow the paper link for the latest details."
     )
-    image = override.get("image") or "/images/publications/publication-placeholder.svg"
-    image_alt = override.get("image_alt") or f"Preview image for {title}."
+    image = (
+        override["image"]
+        if "image" in override
+        else "/images/publications/publication-placeholder.svg"
+    )
+    image_alt = (
+        override["image_alt"]
+        if "image_alt" in override
+        else f"Preview image for {title}."
+    )
     authors = override.get("authors") or join_authors([name for _, name in publication.authors])
     description = override.get("description") or (
         "This publication entry is synchronized automatically from DBLP. "
@@ -296,9 +304,13 @@ def render_publication(
         f"dblp_key: {yaml_string(publication.key)}",
         f"generated_by: {GENERATED_BY}",
     ]
-    if bibtex:
+    curated_bibtex = override.get("bibtex")
+    if isinstance(curated_bibtex, list):
+        curated_bibtex = "\n".join(curated_bibtex)
+    display_bibtex = curated_bibtex or bibtex
+    if display_bibtex:
         front_matter.append("bibtex: |-")
-        front_matter.extend(f"  {line}" for line in bibtex.splitlines())
+        front_matter.extend(f"  {line}" for line in display_bibtex.splitlines())
     front_matter.extend(
         [
             "---",

@@ -16,23 +16,15 @@ citation: "<strong>Y. H. He</strong>, J. Y. Tian, H. W. Wu, J. Q. Li, &ldquo;Str
 dblp_key: "journals/corr/abs-2505-19425"
 generated_by: dblp_sync
 bibtex: |-
-  @article{DBLP:journals/corr/abs-2505-19425,
-    author       = {Yuhao He and
-                    Jinyu Tian and
-                    Haiwei Wu and
-                    Jianqing Li},
-    title        = {Structure Disruption: Subverting Malicious Diffusion-Based Inpainting
-                    via Self-Attention Query Perturbation},
-    journal      = {CoRR},
-    volume       = {abs/2505.19425},
-    year         = {2025},
-    url          = {https://doi.org/10.48550/arXiv.2505.19425},
-    doi          = {10.48550/ARXIV.2505.19425},
-    eprinttype   = {arXiv},
-    eprint       = {2505.19425},
-    timestamp    = {Mon, 07 Jul 2025 01:00:00 +0200},
-    biburl       = {https://dblp.org/rec/journals/corr/abs-2505-19425.bib},
-    bibsource    = {dblp computer science bibliography, https://dblp.org}
+  @misc{he2025structure,
+    author        = {He, Yuhao and Tian, Jinyu and Wu, Haiwei and Li, Jianqing},
+    title         = {Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation},
+    year          = {2025},
+    eprint        = {2505.19425},
+    archivePrefix = {arXiv},
+    primaryClass  = {cs.CV},
+    doi           = {10.48550/arXiv.2505.19425},
+    url           = {https://arxiv.org/abs/2505.19425}
   }
 ---
 

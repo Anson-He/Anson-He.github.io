@@ -16,29 +16,16 @@ citation: "<strong>Y. H. He</strong>, J. Y. Tian, X. W. Zheng, L. Dong, Y. M. Li
 dblp_key: "conf/aaai/HeTZDLZ26"
 generated_by: dblp_sync
 bibtex: |-
-  @inproceedings{DBLP:conf/aaai/HeTZDLZ26,
-    author       = {Yuhao He and
-                    Jinyu Tian and
-                    Xianwei Zheng and
-                    Li Dong and
-                    Yuanman Li and
-                    Jiantao Zhou},
-    editor       = {Sven Koenig and
-                    Chad Jenkins and
-                    Matthew E. Taylor},
-    title        = {Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization},
-    booktitle    = {Fortieth {AAAI} Conference on Artificial Intelligence, Thirty-Eighth
-                    Conference on Innovative Applications of Artificial Intelligence,
-                    Sixteenth Symposium on Educational Advances in Artificial Intelligence,
-                    {AAAI} 2026, Singapore, January 20-27, 2026},
-    pages        = {21681--21689},
-    publisher    = {{AAAI} Press},
-    year         = {2026},
-    url          = {https://doi.org/10.1609/aaai.v40i26.39318},
-    doi          = {10.1609/AAAI.V40I26.39318},
-    timestamp    = {Fri, 27 Mar 2026 00:00:00 +0100},
-    biburl       = {https://dblp.org/rec/conf/aaai/HeTZDLZ26.bib},
-    bibsource    = {dblp computer science bibliography, https://dblp.org}
+  @article{he2026deferred,
+    author  = {He, Yuhao and Tian, Jinyu and Zheng, Xianwei and Dong, Li and Li, Yuanman and Zhou, Jiantao},
+    title   = {Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization},
+    journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+    volume  = {40},
+    number  = {26},
+    pages   = {21681--21689},
+    year    = {2026},
+    doi     = {10.1609/aaai.v40i26.39318},
+    url     = {https://doi.org/10.1609/aaai.v40i26.39318}
   }
 ---
 

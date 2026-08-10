@@ -88,6 +88,26 @@ class SyncPublicationsTests(unittest.TestCase):
         self.assertIn("One paper is accepted by AAAI 2026", rendered)
         self.assertNotIn("hidden", rendered)
 
+    def test_curated_bibtex_overrides_dblp_and_image_can_be_disabled(self):
+        publication = next(
+            item for item in self.records if item.key == "journals/ijwmip/HeZM23"
+        )
+        curated = [
+            "@article{he2023tfa,",
+            "  title = {TFA-CLSTMNN},",
+            "  year = {2023}",
+            "}",
+        ]
+        content, _ = sync.render_publication(
+            publication,
+            {"bibtex": curated, "image": ""},
+            sync.DEFAULT_DBLP_PID,
+            self.bibtex_entries[publication.key],
+        )
+        self.assertIn('image: ""', content)
+        self.assertIn("@article{he2023tfa", content)
+        self.assertNotIn("DBLP:journals/ijwmip/HeZM23", content)
+
     def test_heartbeat_is_not_rewritten_every_run(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

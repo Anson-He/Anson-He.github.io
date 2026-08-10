@@ -9,7 +9,9 @@ The homepage synchronizes publication metadata from Yuhao He's public DBLP recor
 The workflow runs `scripts/sync_publications.py`, updates `_publications/` and
 `_data/auto_news.yml`, and commits only when the generated content changes.
 Formal conference or journal records take priority over duplicate preprints.
-Official BibTeX entries are imported from DBLP's person-level BibTeX export.
+Curated, citation-ready BibTeX from publisher, DOI, or arXiv metadata takes
+priority over DBLP's person-level BibTeX export, which remains the fallback for
+newly discovered records.
 
 GitHub can disable scheduled workflows in inactive public repositories. A small
 `_data/publication_sync.json` heartbeat is therefore updated at most once every
@@ -18,9 +20,10 @@ GitHub can disable scheduled workflows in inactive public repositories. A small
 Curated descriptions, stable permalinks, and extra links are stored in
 `_data/publication_overrides.json`. Add a record there when a new publication
 needs a custom abstract, paper figure, code link, shorter venue name, author
-initials, or acceptance-style news text. New DBLP records appear automatically
-with a neutral image, an abstract placeholder, and a publication-style news item
-until those richer presentation fields are curated.
+initials, citation-ready BibTeX, or acceptance-style news text. An explicit empty
+`image` value disables the figure for that publication. New DBLP records appear
+automatically with a neutral image, an abstract placeholder, and a
+publication-style news item until those richer presentation fields are curated.
 
 Non-publication updates can be added to `_data/manual_news.yml`; the synchronizer
 does not overwrite that file.

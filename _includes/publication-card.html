@@ -1,7 +1,7 @@
 {% assign publication = include.publication %}
 {% assign abstract_words = publication.abstract | number_of_words %}
 <article class="publication-card">
-  {% if publication.image %}
+  {% if publication.image and publication.image != "" %}
     <a class="publication-card__media" href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ publication.title }}">
       <img src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy">
     </a>
@@ -36,7 +36,7 @@
 
     {% if publication.bibtex %}
       <details class="publication-card__bibtex">
-        <summary>Official BibTeX</summary>
+        <summary>BibTeX</summary>
         <pre><code>{{ publication.bibtex | escape }}</code></pre>
       </details>
     {% endif %}
