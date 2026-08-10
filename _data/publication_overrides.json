@@ -1,0 +1,54 @@
+{
+  "conf/aaai/HeTZDLZ26": {
+    "filename": "2026-01-01-deferred-poisoning.md",
+    "slug": "deferred-poisoning",
+    "permalink": "/publication/deferred-poisoning",
+    "date": "2026-01-01",
+    "category": "conferences",
+    "venue": "Proceedings of the 40th AAAI Conference on Artificial Intelligence (AAAI 2026)",
+    "news_venue": "AAAI 2026",
+    "paperurl": "https://doi.org/10.1609/aaai.v40i26.39318",
+    "excerpt": "A stealthy training-time poisoning attack that preserves normal validation behavior while increasing model vulnerability to small perturbations.",
+    "description": "This work introduces the Deferred Poisoning Attack, which makes a trained model highly sensitive to evasion attacks or natural noise while maintaining apparently normal behavior during training and validation. The method uses singularization regularization to reshape local curvature near the optimum.",
+    "links": [
+      {"label": "Paper", "url": "https://doi.org/10.1609/aaai.v40i26.39318"},
+      {"label": "arXiv", "url": "https://arxiv.org/abs/2411.03752"},
+      {"label": "Code", "url": "https://github.com/Anson-He/Deferred-Poisoning-Attack"},
+      {"label": "MUST News", "url": "https://sgs.must.edu.mo/news.school.news/article/view/id-39098.html"},
+      {"label": "DBLP", "url": "https://dblp.org/rec/conf/aaai/HeTZDLZ26"}
+    ]
+  },
+  "journals/corr/abs-2505-19425": {
+    "filename": "2025-05-27-structure-disruption.md",
+    "slug": "structure-disruption",
+    "permalink": "/publication/structure-disruption",
+    "date": "2025-05-27",
+    "category": "preprints",
+    "venue": "arXiv preprint",
+    "paperurl": "https://arxiv.org/abs/2505.19425",
+    "excerpt": "A proactive image-protection framework that disrupts diffusion-based inpainting by perturbing self-attention queries.",
+    "description": "This work proposes Structure Disruption Attack, a proactive protection framework for safeguarding sensitive image regions against malicious diffusion-based inpainting. It targets self-attention queries during early denoising to disrupt coherent structure generation.",
+    "links": [
+      {"label": "Paper", "url": "https://arxiv.org/abs/2505.19425"},
+      {"label": "DBLP", "url": "https://dblp.org/rec/journals/corr/abs-2505-19425"}
+    ]
+  },
+  "journals/ijwmip/HeZM23": {
+    "title": "TFA-CLSTMNN: Novel Convolutional Network for Sound-Based Diagnosis of COVID-19",
+    "filename": "2023-01-01-tfa-clstmnn.md",
+    "slug": "tfa-clstmnn",
+    "permalink": "/publication/tfa-clstmnn",
+    "date": "2023-01-01",
+    "category": "manuscripts",
+    "venue": "International Journal of Wavelets, Multiresolution and Information Processing",
+    "news_venue": "International Journal of Wavelets, Multiresolution and Information Processing",
+    "paperurl": "https://doi.org/10.1142/S0219691322500588",
+    "excerpt": "A convolutional and recurrent neural network for sound-based COVID-19 diagnosis.",
+    "description": "This paper presents a neural architecture for sound-based COVID-19 diagnosis that combines time-frequency analysis, convolutional feature extraction, and long short-term memory modeling.",
+    "links": [
+      {"label": "Paper", "url": "https://doi.org/10.1142/S0219691322500588"},
+      {"label": "Code", "url": "https://github.com/Anson-He/TFA-CLSTMNN-Novel-convolutional-network-for-sound-based-diagnosis-of-COVID-19"},
+      {"label": "DBLP", "url": "https://dblp.org/rec/journals/ijwmip/HeZM23"}
+    ]
+  }
+}

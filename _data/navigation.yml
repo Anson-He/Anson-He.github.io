@@ -1,10 +1,10 @@
 # Header navigation for Yuhao He's academic homepage.
 main:
-  - title: "Research"
+  - title: "🔬 Research"
     url: /research/
 
-  - title: "Publications"
+  - title: "📚 Publications"
     url: /publications/
 
-  - title: "CV"
+  - title: "📄 CV"
     url: /cv/

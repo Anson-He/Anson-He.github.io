@@ -1,15 +1,15 @@
 {
   "basics": {
     "name": "Yuhao He",
-    "email": "3250004430@student.must.edu.mo",
+    "email": "",
     "phone": "",
     "website": "https://anson-he.github.io",
     "summary": "Ph.D. student at Macau University of Science and Technology researching adversarial machine learning, AIGC security, and LLM security.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Macao",
-      "countryCode": "MO",
+      "city": "",
+      "countryCode": "",
       "region": ""
     },
     "profiles": [
@@ -41,26 +41,8 @@
       "institution": "Macau University of Science and Technology",
       "area": "Faculty of Innovation Engineering",
       "studyType": "Ph.D. student",
-      "startDate": "2025",
-      "endDate": "2028 (expected)",
-      "gpa": null,
-      "courses": []
-    },
-    {
-      "institution": "Macau University of Science and Technology",
-      "area": "Faculty of Innovation Engineering",
-      "studyType": "Master's study",
-      "startDate": "2023",
-      "endDate": "2025",
-      "gpa": null,
-      "courses": []
-    },
-    {
-      "institution": "Foshan University",
-      "area": "School of Mathematics and Big Data",
-      "studyType": "Undergraduate study",
-      "startDate": "2019",
-      "endDate": "2023",
+      "startDate": "",
+      "endDate": "",
       "gpa": null,
       "courses": []
     }

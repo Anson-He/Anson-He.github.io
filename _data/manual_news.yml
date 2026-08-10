@@ -1,0 +1,7 @@
+# Optional curated updates. These are preserved when publications sync.
+# Example:
+# - year: "2026"
+#   text: "Released a new research codebase."
+#   url: "https://github.com/Anson-He"
+#   label: "Code"
+[]

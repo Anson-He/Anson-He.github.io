@@ -7,7 +7,9 @@ excerpt: "A proactive image-protection framework that disrupts diffusion-based i
 date: 2025-05-27
 venue: "arXiv preprint"
 paperurl: "https://arxiv.org/abs/2505.19425"
-citation: "<strong>Yuhao He</strong>, Jinyu Tian, Haiwei Wu, and Jianqing Li. (2025). &quot;Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation.&quot; <i>arXiv preprint arXiv:2505.19425</i>."
+citation: "<strong>Yuhao He</strong>, Jinyu Tian, Haiwei Wu, and Jianqing Li. (2025). &quot;Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation.&quot; <i>arXiv preprint</i>."
+dblp_key: "journals/corr/abs-2505-19425"
+generated_by: dblp_sync
 ---
 
 This work proposes Structure Disruption Attack, a proactive protection framework for safeguarding sensitive image regions against malicious diffusion-based inpainting. It targets self-attention queries during early denoising to disrupt coherent structure generation.

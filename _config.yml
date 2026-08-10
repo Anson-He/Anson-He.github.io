@@ -25,12 +25,12 @@ author:
   # Biographic information
   avatar           : "profile.svg"
   name             : "Yuhao He | 何宇浩"
-  pronouns         : "he/him"
-  bio              : "Ph.D. student working on secure and trustworthy AI"
-  location         : "Macao, China"
-  employer         : "Macau University of Science and Technology"
-  uri              : "https://dblp.org/pid/257/8328-1.html"
-  email            : "3250004430@student.must.edu.mo"
+  pronouns         :
+  bio              : "🎓 Ph.D. student working on secure and trustworthy AI"
+  location         :
+  employer         : "MUST"
+  uri              :
+  email            :
 
   # Academic websites
   academia         : # URL
@@ -85,11 +85,11 @@ author:
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   conferences:
-    title: 'Conference Papers'
+    title: '🏛️ Conference Papers'
   preprints:
-    title: 'Preprints'
+    title: '📝 Preprints'
   manuscripts:
-    title: 'Journal Articles'
+    title: '📘 Journal Articles'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- Public DBLP metadata, CC0 1.0. Source: https://dblp.org/pid/257/8328-1.xml -->
+<dblpperson name="Yuhao He 0001" pid="257/8328-1" n="4">
+  <r>
+    <inproceedings key="conf/aaai/HeTZDLZ26" mdate="2026-03-27">
+      <author pid="257/8328-1">Yuhao He 0001</author>
+      <author pid="14/1023-1">Jinyu Tian 0001</author>
+      <author pid="146/8854">Xianwei Zheng</author>
+      <author pid="85/5090-6">Li Dong 0006</author>
+      <author pid="158/9418">Yuanman Li</author>
+      <author pid="52/4786-1">Jiantao Zhou 0001</author>
+      <title>Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization.</title>
+      <pages>21681-21689</pages>
+      <year>2026</year>
+      <booktitle>AAAI</booktitle>
+      <ee type="oa">https://doi.org/10.1609/aaai.v40i26.39318</ee>
+    </inproceedings>
+  </r>
+  <r>
+    <article publtype="informal" key="journals/corr/abs-2505-19425" mdate="2025-07-07">
+      <author pid="257/8328-1">Yuhao He 0001</author>
+      <author pid="14/1023-1">Jinyu Tian 0001</author>
+      <author pid="35/8387">Haiwei Wu</author>
+      <author pid="46/6317-1">Jianqing Li 0001</author>
+      <title>Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation.</title>
+      <year>2025</year>
+      <month>May</month>
+      <volume>abs/2505.19425</volume>
+      <journal>CoRR</journal>
+      <ee type="oa">https://doi.org/10.48550/arXiv.2505.19425</ee>
+    </article>
+  </r>
+  <r>
+    <article publtype="informal" key="journals/corr/abs-2411-03752" mdate="2025-06-12">
+      <author pid="257/8328-1">Yuhao He 0001</author>
+      <author pid="14/1023-1">Jinyu Tian 0001</author>
+      <author pid="146/8854">Xianwei Zheng</author>
+      <author pid="85/5090-6">Li Dong 0006</author>
+      <author pid="158/9418">Yuanman Li</author>
+      <author pid="117/3526-1">Leo Yu Zhang</author>
+      <author pid="52/4786-1">Jiantao Zhou 0001</author>
+      <title>Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization.</title>
+      <year>2024</year>
+      <volume>abs/2411.03752</volume>
+      <journal>CoRR</journal>
+      <ee type="oa">https://doi.org/10.48550/arXiv.2411.03752</ee>
+    </article>
+  </r>
+  <r>
+    <article key="journals/ijwmip/HeZM23" mdate="2025-06-12">
+      <author pid="257/8328-1">Yuhao He 0001</author>
+      <author pid="146/8854">Xianwei Zheng</author>
+      <author pid="62/758">Qing Miao</author>
+      <title>TFA-CLSTMNN: Novel convolutional network for sound-based diagnosis of COVID-19.</title>
+      <pages>2250058:1-2250058:26</pages>
+      <year>2023</year>
+      <month>May</month>
+      <volume>21</volume>
+      <number>3</number>
+      <journal>Int. J. Wavelets Multiresolution Inf. Process.</journal>
+      <ee>https://doi.org/10.1142/S0219691322500588</ee>
+    </article>
+  </r>
+</dblpperson>
