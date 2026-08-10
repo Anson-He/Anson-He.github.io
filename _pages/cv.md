@@ -11,7 +11,8 @@ redirect_from:
 ======
 
 - **Ph.D. in Artificial Intelligence**, Faculty of Innovation Engineering<br>
-  Macau University of Science and Technology, Macau, China · Sept. 2025 – present
+  Macau University of Science and Technology, Macau, China · Sept. 2025 – present<br>
+  Supervisor: Prof. [Jinyu Tian](https://jinyutian.github.io/)
 - **M.S. in Intelligent Technology**, Faculty of Innovation Engineering<br>
   Macau University of Science and Technology, Macau, China · Sept. 2023 – Jun. 2025
 - **B.S. in Mathematics and Applied Mathematics (AI Innovation Class)**, Department of Mathematics and Big Data<br>
@@ -20,17 +21,19 @@ redirect_from:
 🔬 Research Interests
 ======
 
-- AIGC security and visual content protection
-- Adversarial robustness of generative models
-- Large language model security and safety
-- Secure and trustworthy AI
+- Adversarial Machine Learning
+- Data Poisoning/Protection
+- AI-Generated Content Security
 
 📚 Publications
 ======
 
-<ul>{% for post in site.publications reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}</ul>
+<ul class="compact-publication-list">
+{% assign sorted_publications = site.publications | sort: "date" | reverse %}
+{% for post in sorted_publications %}
+  {% include publication-list-item.html publication=post %}
+{% endfor %}
+</ul>
 
 🔗 Academic Profiles
 ======

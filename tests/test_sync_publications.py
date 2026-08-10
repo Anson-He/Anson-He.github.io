@@ -41,6 +41,53 @@ class SyncPublicationsTests(unittest.TestCase):
         self.assertIn("@article{DBLP:journals/ijwmip/HeZM23", entry)
         self.assertIn("10.1142/S0219691322500588", entry)
 
+    def test_compact_citation_uses_curated_initials_and_bolds_owner(self):
+        publication = next(
+            item for item in self.records if item.key == "conf/aaai/HeTZDLZ26"
+        )
+        override = {
+            "citation_authors": [
+                "Y. H. He",
+                "J. Y. Tian",
+                "X. W. Zheng",
+                "L. Dong",
+                "Y. M. Li",
+                "J. T. Zhou",
+            ],
+            "citation_venue": "AAAI",
+            "venue_rank": "CCF A",
+        }
+        citation = sync.citation_for(
+            publication,
+            publication.title,
+            publication.venue,
+            sync.DEFAULT_DBLP_PID,
+            override,
+        )
+        self.assertTrue(citation.startswith("<strong>Y. H. He</strong>, J. Y. Tian"))
+        self.assertIn("<i>AAAI</i>. (CCF A)", citation)
+
+    def test_news_rendering_uses_date_and_acceptance_style(self):
+        rendered = sync.render_news(
+            [
+                {
+                    "date": "2026-01-01",
+                    "date_label": "2025.11",
+                    "text": "🎉 One paper is accepted by AAAI 2026",
+                    "show": True,
+                },
+                {
+                    "date": "2025-05-27",
+                    "date_label": "2025.05",
+                    "text": "hidden",
+                    "show": False,
+                },
+            ]
+        )
+        self.assertIn('date: "2025.11"', rendered)
+        self.assertIn("One paper is accepted by AAAI 2026", rendered)
+        self.assertNotIn("hidden", rendered)
+
     def test_heartbeat_is_not_rewritten_every_run(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

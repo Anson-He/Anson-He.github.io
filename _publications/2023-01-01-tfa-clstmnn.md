@@ -12,7 +12,7 @@ abstract: "The outbreak of the global COVID-19 pandemic has become a public cris
 image: "/images/publications/tfa-clstmnn-figure.png"
 image_alt: "Cough spectrogram and waveform from the authors' public TFA-CLSTMNN research notebook."
 links: [{"label": "Paper", "url": "https://doi.org/10.1142/S0219691322500588"}, {"label": "Code", "url": "https://github.com/Anson-He/TFA-CLSTMNN-Novel-convolutional-network-for-sound-based-diagnosis-of-COVID-19"}, {"label": "DBLP", "url": "https://dblp.org/rec/journals/ijwmip/HeZM23"}]
-citation: "<strong>Yuhao He</strong>, Xianwei Zheng, and Qing Miao. (2023). &quot;TFA-CLSTMNN: Novel Convolutional Network for Sound-Based Diagnosis of COVID-19.&quot; <i>International Journal of Wavelets, Multiresolution and Information Processing</i>, 21(3), 2250058."
+citation: "<strong>Y. H. He</strong>, X. W. Zheng, Q. Miao, &ldquo;TFA-CLSTMNN: Novel Convolutional Network for Sound-Based Diagnosis of COVID-19&rdquo;, <i>IJWMIP</i>."
 dblp_key: "journals/ijwmip/HeZM23"
 generated_by: dblp_sync
 bibtex: |-

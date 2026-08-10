@@ -12,7 +12,7 @@ abstract: "The rapid advancement of diffusion models has enhanced their image in
 image: "/images/publications/structure-disruption-figure-1.png"
 image_alt: "Figure 1 from Structure Disruption, comparing unprotected and protected image editing."
 links: [{"label": "Paper", "url": "https://arxiv.org/abs/2505.19425"}, {"label": "DBLP", "url": "https://dblp.org/rec/journals/corr/abs-2505-19425"}]
-citation: "<strong>Yuhao He</strong>, Jinyu Tian, Haiwei Wu, and Jianqing Li. (2025). &quot;Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation.&quot; <i>arXiv preprint</i>."
+citation: "<strong>Y. H. He</strong>, J. Y. Tian, H. W. Wu, J. Q. Li, &ldquo;Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation&rdquo;, <i>arXiv preprint</i>."
 dblp_key: "journals/corr/abs-2505-19425"
 generated_by: dblp_sync
 bibtex: |-

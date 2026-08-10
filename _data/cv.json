@@ -1,15 +1,15 @@
 {
   "basics": {
     "name": "Yuhao He",
-    "email": "",
+    "email": "ansonhe2001@outlook.com",
     "phone": "",
     "website": "https://anson-he.github.io",
-    "summary": "Ph.D. student at Macau University of Science and Technology researching AIGC security, visual content protection, LLM security, and trustworthy AI.",
+    "summary": "Ph.D. student in Artificial Intelligence at Macau University of Science and Technology, supervised by Prof. Jinyu Tian, researching adversarial machine learning, data poisoning and protection, and AI-generated content security.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "",
-      "countryCode": "",
+      "city": "Macau",
+      "countryCode": "CN",
       "region": ""
     },
     "profiles": [
@@ -41,6 +41,8 @@
       "institution": "Macau University of Science and Technology",
       "area": "Artificial Intelligence, Faculty of Innovation Engineering",
       "studyType": "Ph.D.",
+      "advisor": "Prof. Jinyu Tian",
+      "advisorUrl": "https://jinyutian.github.io/",
       "startDate": "2025-09",
       "endDate": "Present",
       "gpa": null,
@@ -67,21 +69,21 @@
   ],
   "skills": [
     {
-      "name": "AIGC Security and Visual Content Protection",
+      "name": "Adversarial Machine Learning",
       "level": "Research",
-      "keywords": ["malicious generative editing", "content protection", "generative model robustness"]
+      "keywords": ["adversarial machine learning", "data poisoning", "data protection"]
     },
     {
-      "name": "Secure and Trustworthy AI",
+      "name": "AI-Generated Content Security",
       "level": "Research",
-      "keywords": ["LLM security", "AI safety", "trustworthy AI"]
+      "keywords": ["malicious generative editing", "visual content protection", "AIGC security"]
     }
   ],
   "languages": [],
   "interests": [
     {
-      "name": "Secure and Trustworthy AI",
-      "keywords": ["AIGC security", "visual content protection", "generative model robustness", "LLM security"]
+      "name": "AI Security",
+      "keywords": ["adversarial machine learning", "data poisoning and protection", "AI-generated content security"]
     }
   ],
   "references": [],

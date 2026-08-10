@@ -10,7 +10,7 @@
   <div class="publication-card__content">
     <p class="publication-card__meta">{{ publication.venue }} · {{ publication.date | date: "%Y" }}</p>
     <h2 class="publication-card__title"><a href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a></h2>
-    {% if publication.authors %}<p class="publication-card__authors">{{ publication.authors }}</p>{% endif %}
+    {% if publication.authors %}{% assign highlighted_authors = publication.authors | replace_first: "Yuhao He", "<strong>Yuhao He</strong>" %}<p class="publication-card__authors">{{ highlighted_authors }}</p>{% endif %}
 
     {% if publication.abstract %}
       {% if abstract_words > 65 %}

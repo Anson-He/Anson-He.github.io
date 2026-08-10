@@ -17,9 +17,10 @@ GitHub can disable scheduled workflows in inactive public repositories. A small
 
 Curated descriptions, stable permalinks, and extra links are stored in
 `_data/publication_overrides.json`. Add a record there when a new publication
-needs a custom abstract, paper figure, code link, or shorter venue name. New DBLP
-records appear automatically with a neutral image and abstract placeholder until
-those richer presentation fields are curated.
+needs a custom abstract, paper figure, code link, shorter venue name, author
+initials, or acceptance-style news text. New DBLP records appear automatically
+with a neutral image, an abstract placeholder, and a publication-style news item
+until those richer presentation fields are curated.
 
 Non-publication updates can be added to `_data/manual_news.yml`; the synchronizer
 does not overwrite that file.
