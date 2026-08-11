@@ -14,7 +14,8 @@ redirect_from:
   Macau University of Science and Technology, Macau, China · Sept. 2025 – present<br>
   Supervisor: Prof. [Jinyu Tian](https://jinyutian.github.io/)
 - **M.S. in Intelligent Technology**, Faculty of Innovation Engineering<br>
-  Macau University of Science and Technology, Macau, China · Sept. 2023 – Jun. 2025
+  Macau University of Science and Technology, Macau, China · Sept. 2023 – Jun. 2025<br>
+  Supervisor: Prof. [Jinyu Tian](https://jinyutian.github.io/)
 - **B.S. in Mathematics and Applied Mathematics (AI Innovation Class)**, Department of Mathematics and Big Data<br>
   Foshan University, Guangdong, China · Sept. 2019 – Jun. 2023
 

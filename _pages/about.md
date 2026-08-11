@@ -7,7 +7,17 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a Ph.D. student in Artificial Intelligence in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/). I received my M.S. in Intelligent Technology from Macau University of Science and Technology in 2025 and my B.S. in Mathematics and Applied Mathematics (AI Innovation Class) from Foshan University in 2023. My research focuses on adversarial machine learning, data poisoning and data protection, and the security of AI-generated content, with a particular interest in protecting visual content from malicious generative editing.
+I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. student in Artificial Intelligence in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/). My research focuses on adversarial machine learning, data poisoning and data protection, and AI-generated content security, with a particular interest in **protecting visual content from malicious generative editing**.
+
+🎓 Education
+======
+
+- **Ph.D. in Artificial Intelligence**, Faculty of Innovation Engineering<br>
+  Macau University of Science and Technology, Macau, China · Sept. 2025 – present
+- **M.S. in Intelligent Technology**, Faculty of Innovation Engineering<br>
+  Macau University of Science and Technology, Macau, China · Sept. 2023 – Jun. 2025
+- **B.S. in Mathematics and Applied Mathematics (AI Innovation Class)**, Department of Mathematics and Big Data<br>
+  Foshan University, Guangdong, China · Sept. 2019 – Jun. 2023
 
 🔬 Research Interests
 ======
