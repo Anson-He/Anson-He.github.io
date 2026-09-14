@@ -13,7 +13,9 @@ Ph.D. Student in Artificial Intelligence<br>
 Macau University of Science and Technology · Macau, China<br>
 <a href="mailto:3250004430@student.must.edu.mo">3250004430@student.must.edu.mo</a></p>
 
-<p><strong>Research focus:</strong> Adversarial Machine Learning; Data Poisoning and Protection; AI-Generated Content Security, particularly protecting visual content from malicious generative editing.</p>
+<p><a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[Download PDF CV]</a></p>
+
+<p><strong>Research focus:</strong> Secure and trustworthy AI, with a particular interest in protecting visual content from malicious generative editing. Current directions include Adversarial Machine Learning, Data Poisoning and Protection, and AI-Generated Content Security.</p>
 
 ## Education
 
@@ -46,12 +48,42 @@ Macau University of Science and Technology · Macau, China<br>
 ## Honors & Awards
 
 <ul class="honors-list">
+  <li><span>[2023]</span> Outstanding Undergraduate Graduate, Foshan University.</li>
+  <li><span>[2023]</span> Recipient of the Foshan Specialty Medical Catheters Innovation and Entrepreneurship Scholarship.</li>
   <li><span>[2021]</span> National Scholarship for Undergraduates.</li>
-  <li><span>[2021]</span> National Second Prize and Guangdong Provincial First Prize, China Undergraduate Mathematical Contest in Modeling.</li>
-  <li><span>[2021]</span> Third Prize, Teddy Cup Data Mining Challenge.</li>
-  <li><span>[2021]</span> Second Prize, “Internet+” Innovation and Entrepreneurship Competition.</li>
-  <li><span>[2021]</span> Bronze Award, “Challenge Cup” Competition.</li>
+  <li><span>[2021]</span> National Second Prize, National College Students Mathematical Modeling Competition.</li>
   <li><span>[2020]</span> National Second Prize, Guangdong–Hong Kong–Macao Financial Mathematical Modeling Competition.</li>
+</ul>
+
+## Internship Experience
+
+<div class="experience-list">
+  <div class="experience-row">
+    <a class="experience-row__logo" href="https://www.joyy.com/" target="_blank" rel="noopener noreferrer">
+      <img src="{{ '/images/companies/joyy-logo.jpg' | relative_url }}" alt="JOYY logo" width="112" height="64" loading="lazy">
+    </a>
+    <div class="experience-row__content">
+      <p><strong>JOYY, Guangzhou</strong><span>Feb. 2023 – Jun. 2023</span></p>
+      <p><em>Algorithm Intern</em></p>
+      <p>Developed and maintained risk-control algorithms for social products. Monitored market data and refined risk-control rules, reducing the false-negative rate from 12% to 5%.</p>
+    </div>
+  </div>
+  <div class="experience-row">
+    <div class="experience-row__logo">
+      <img src="{{ '/images/companies/dayan-data-mark.svg' | relative_url }}" alt="Foshan Dayan Data text mark" width="88" height="88" loading="lazy">
+    </div>
+    <div class="experience-row__content">
+      <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
+      <p><em>Algorithm and Development Intern</em></p>
+      <p>Curated a dataset of more than 30,000 images across 29 categories and developed an SE-ResNet50-based strawberry disease and pest classifier, achieving 89% accuracy across 14 categories. Led the development of a WeChat mini-program that received software copyright registration and was deployed in local plantations in Foshan.</p>
+    </div>
+  </div>
+</div>
+
+## Copyrights
+
+<ul class="copyright-list">
+  <li><strong>Strawberry Pest and Disease Identification Mini Program V1.0</strong>, Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China.</li>
 </ul>
 
 ## Academic Profiles
