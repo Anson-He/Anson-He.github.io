@@ -11,14 +11,6 @@
     "news_text": "🎉 One paper is accepted by AAAI 2026",
     "show_in_news": true,
     "citation_authors": ["Y. H. He", "J. Y. Tian", "X. W. Zheng", "L. Dong", "Y. M. Li", "J. T. Zhou"],
-    "author_links": [
-      {"name": "Yuhao He", "url": "https://anson-he.github.io/", "affiliation": "Faculty of Innovation Engineering, Macau University of Science and Technology"},
-      {"name": "Jinyu Tian", "url": "https://jinyutian.github.io/", "affiliation": "Faculty of Innovation Engineering, Macau University of Science and Technology"},
-      {"name": "Xianwei Zheng", "url": "https://www.researchgate.net/profile/Xianwei-Zheng-2", "affiliation": "School of Mathematics, Foshan University"},
-      {"name": "Li Dong", "url": "https://nbudongli.github.io/", "affiliation": "Faculty of Electrical Engineering and Computer Science, Ningbo University"},
-      {"name": "Yuanman Li", "url": "https://yuanmanli.github.io/", "affiliation": "College of Electronics and Information Engineering, Shenzhen University"},
-      {"name": "Jiantao Zhou", "url": "https://www.fst.um.edu.mo/personal/jtzhou/", "affiliation": "Department of Computer and Information Science, University of Macau"}
-    ],
     "citation_venue": "AAAI",
     "venue_rank": "CCF A",
     "bibtex": [
@@ -57,12 +49,6 @@
     "venue": "arXiv preprint",
     "show_in_news": false,
     "citation_authors": ["Y. H. He", "J. Y. Tian", "H. W. Wu", "J. Q. Li"],
-    "author_links": [
-      {"name": "Yuhao He", "url": "https://anson-he.github.io/", "affiliation": "Faculty of Innovation Engineering, Macau University of Science and Technology"},
-      {"name": "Jinyu Tian", "url": "https://jinyutian.github.io/", "affiliation": "Faculty of Innovation Engineering, Macau University of Science and Technology"},
-      {"name": "Haiwei Wu", "url": "https://faculty.uestc.edu.cn/wuhaiwei/en/index.htm", "affiliation": "School of Computer Science and Engineering, University of Electronic Science and Technology of China"},
-      {"name": "Jianqing Li", "url": "https://www.must.edu.mo/news/1038-academic/fi/stall-intro/12024-li-jian-qing", "affiliation": "Faculty of Innovation Engineering, Macau University of Science and Technology"}
-    ],
     "citation_venue": "arXiv preprint",
     "bibtex": [
       "@misc{he2025structure,",
@@ -98,11 +84,6 @@
     "news_venue": "International Journal of Wavelets, Multiresolution and Information Processing",
     "show_in_news": false,
     "citation_authors": ["Y. H. He", "X. W. Zheng", "Q. Miao"],
-    "author_links": [
-      {"name": "Yuhao He", "url": "https://anson-he.github.io/", "affiliation": "School of Mathematics and Big Data, Foshan University"},
-      {"name": "Xianwei Zheng", "url": "https://www.researchgate.net/profile/Xianwei-Zheng-2", "affiliation": "School of Mathematics and Big Data, Foshan University"},
-      {"name": "Qing Miao", "url": "https://orcid.org/0000-0002-4265-901X", "affiliation": "Department of Mathematics, Foshan University"}
-    ],
     "citation_venue": "IJWMIP",
     "bibtex": [
       "@article{he2023tfa,",
