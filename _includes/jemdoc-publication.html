@@ -1,0 +1,40 @@
+{% assign publication = include.publication %}
+{% assign publication_meta = site.data.publication_overrides[publication.dblp_key] %}
+<article class="publication-row{% if publication.image == nil or publication.image == '' %} publication-row--text{% endif %}">
+  {% if publication.image and publication.image != "" %}
+  <a class="publication-row__figure" href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ publication.title | escape }}">
+    <img src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy">
+  </a>
+  {% endif %}
+
+  <div class="publication-row__content">
+    <p class="publication-row__title"><a href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer">{{ publication.title | escape }}</a></p>
+    {% if publication.authors %}{% assign highlighted_authors = publication.authors | escape | replace_first: "Yuhao He", "<strong>Yuhao He</strong>" %}<p class="publication-row__authors">{{ highlighted_authors }}</p>{% endif %}
+    <p class="publication-row__venue"><span>{{ publication_meta.citation_venue | default: publication.venue | escape }}</span> {{ publication.date | date: "%Y" }}{% if publication_meta.venue_rank %} ({{ publication_meta.venue_rank | escape }}){% endif %}</p>
+
+    <div class="publication-row__links" aria-label="Publication resources">
+      {% for link in publication.links %}
+        {% assign link_label = link.label | downcase %}
+        {% unless link_label == "dblp" or link_label == "must news" %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label | escape }}]</a>{% endunless %}
+      {% endfor %}
+      {% if publication.abstract %}
+      <details>
+        <summary><span class="show-label">[Show details]</span><span class="hide-label">[Hide details]</span></summary>
+        <div class="publication-row__abstract">
+          <p>{{ publication.abstract | escape }}</p>
+          {% for link in publication.links %}
+            {% assign link_label = link.label | downcase %}
+            {% if link_label == "dblp" or link_label == "must news" %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label | escape }}]</a>{% endif %}
+          {% endfor %}
+        </div>
+      </details>
+      {% endif %}
+      {% if publication.bibtex %}
+      <details>
+        <summary>[BibTeX]</summary>
+        <pre><code>{{ publication.bibtex | escape }}</code></pre>
+      </details>
+      {% endif %}
+    </div>
+  </div>
+</article>

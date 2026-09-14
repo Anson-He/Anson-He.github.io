@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synchronize Academic Pages publications and news from a DBLP person record."""
+"""Synchronize homepage publications and news from a DBLP person record."""
 
 from __future__ import annotations
 
@@ -267,12 +267,12 @@ def render_publication(
     image = (
         override["image"]
         if "image" in override
-        else "/images/publications/publication-placeholder.svg"
+        else ""
     )
     image_alt = (
         override["image_alt"]
         if "image_alt" in override
-        else f"Preview image for {title}."
+        else ""
     )
     authors = override.get("authors") or join_authors([name for _, name in publication.authors])
     description = override.get("description") or (

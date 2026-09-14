@@ -1,19 +1,16 @@
 ---
-layout: archive
-title: "📚 Publications"
+layout: default
+title: "Publications"
 permalink: /publications/
-author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">🔎 You can also find my work on <a href="{{site.author.googlescholar}}">Google Scholar</a>, <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a>, and <a href="https://orcid.org/0009-0002-8778-5025">ORCID</a>.</div>
-{% endif %}
+<h1 class="page-title">Publications</h1>
 
-{% include base_path %}
+<p>My complete publication record is also available on <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a>, <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a>, and <a href="https://orcid.org/0009-0002-8778-5025">ORCID</a>.</p>
 
+<div class="publication-list publication-list--archive">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
-<div class="publication-list">
 {% for post in sorted_publications %}
-  {% include publication-card.html publication=post %}
+  {% include jemdoc-publication.html publication=post %}
 {% endfor %}
 </div>

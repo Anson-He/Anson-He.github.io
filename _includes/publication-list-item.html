@@ -1,5 +1,0 @@
-{% assign publication = include.publication %}
-<li>
-  {{ publication.citation }}
-  {% for link in publication.links %}{% assign link_label = link.label | downcase %}{% if link_label == "paper" or link_label == "code" %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label }}]</a>{% endif %}{% endfor %}
-</li>

@@ -1,7 +1,0 @@
-# Header navigation for Yuhao He's academic homepage.
-main:
-  - title: "📚 Publications"
-    url: /publications/
-
-  - title: "📄 CV"
-    url: /cv/

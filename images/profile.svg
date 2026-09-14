@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
-  <title id="title">Yuhao He monogram</title>
-  <desc id="desc">A burgundy and charcoal monogram with the initials YH</desc>
-  <rect width="400" height="400" fill="#f5f3ee"/>
-  <circle cx="200" cy="200" r="176" fill="#26323d"/>
-  <circle cx="200" cy="200" r="158" fill="none" stroke="#8b1e2d" stroke-width="3"/>
-  <text x="200" y="232" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="112" text-anchor="middle" letter-spacing="-8">YH</text>
-  <circle cx="300" cy="286" r="8" fill="#8b1e2d"/>
-</svg>
