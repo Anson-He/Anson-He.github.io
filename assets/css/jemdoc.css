@@ -224,6 +224,49 @@ pre {
   color: var(--muted);
 }
 
+.education-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.education-row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.education-row__logo {
+  display: block;
+}
+
+.education-row__logo img {
+  display: block;
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.education-row__content p {
+  margin-bottom: 0.12em;
+}
+
+.education-row__content p:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.education-row__content p:first-child span {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.honors-list span {
+  color: var(--muted);
+}
+
 .publication-list {
   display: grid;
   gap: 2rem;
@@ -443,6 +486,26 @@ pre {
   }
 
   .timeline__item p:first-child span {
+    display: block;
+    margin-top: 0.12em;
+  }
+
+  .education-row {
+    grid-template-columns: 66px minmax(0, 1fr);
+    align-items: start;
+    gap: 0.85rem;
+  }
+
+  .education-row__logo img {
+    width: 66px;
+    height: 66px;
+  }
+
+  .education-row__content p:first-child {
+    display: block;
+  }
+
+  .education-row__content p:first-child span {
     display: block;
     margin-top: 0.12em;
   }

@@ -11,7 +11,9 @@ redirect_from:
 <p><strong>Yuhao He | 何宇浩</strong><br>
 Ph.D. Student in Artificial Intelligence<br>
 Macau University of Science and Technology · Macau, China<br>
-<a href="mailto:ansonhe2001@outlook.com">ansonhe2001@outlook.com</a></p>
+<a href="mailto:3250004430@student.must.edu.mo">3250004430@student.must.edu.mo</a></p>
+
+<p><strong>Research focus:</strong> Adversarial Machine Learning; Data Poisoning and Protection; AI-Generated Content Security, particularly protecting visual content from malicious generative editing.</p>
 
 ## Education
 
@@ -32,12 +34,6 @@ Macau University of Science and Technology · Macau, China<br>
   </div>
 </div>
 
-## Research Interests
-
-- Adversarial Machine Learning
-- Data Poisoning/Protection
-- AI-Generated Content Security
-
 ## Publications
 
 <ol class="cv-publications">
@@ -46,6 +42,17 @@ Macau University of Science and Technology · Macau, China<br>
   <li>{{ post.citation }} {% for link in post.links %}{% assign link_label = link.label | downcase %}{% if link_label == "paper" or link_label == "code" %}<a href="{{ link.url }}">[{{ link.label }}]</a>{% endif %}{% endfor %}</li>
 {% endfor %}
 </ol>
+
+## Honors & Awards
+
+<ul class="honors-list">
+  <li><span>[2021]</span> National Scholarship for Undergraduates.</li>
+  <li><span>[2021]</span> National Second Prize and Guangdong Provincial First Prize, China Undergraduate Mathematical Contest in Modeling.</li>
+  <li><span>[2021]</span> Third Prize, Teddy Cup Data Mining Challenge.</li>
+  <li><span>[2021]</span> Second Prize, “Internet+” Innovation and Entrepreneurship Competition.</li>
+  <li><span>[2021]</span> Bronze Award, “Challenge Cup” Competition.</li>
+  <li><span>[2020]</span> National Second Prize, Guangdong–Hong Kong–Macao Financial Mathematical Modeling Competition.</li>
+</ul>
 
 ## Academic Profiles
 
