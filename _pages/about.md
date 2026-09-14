@@ -41,12 +41,12 @@ I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. studen
 📚 Publications
 ======
 
-<ul class="compact-publication-list">
+<div class="publication-list">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
-  {% include publication-list-item.html publication=post %}
+  {% include publication-card.html publication=post heading_level="h3" %}
 {% endfor %}
-</ul>
+</div>
 
 🔗 Academic Profiles
 ======
