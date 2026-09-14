@@ -9,7 +9,7 @@
 
   <div class="publication-row__content">
     <p class="publication-row__title"><a href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer">{{ publication.title | escape }}</a></p>
-    {% if publication.authors %}{% assign highlighted_authors = publication.authors | escape | replace_first: "Yuhao He", "<strong>Yuhao He</strong>" %}<p class="publication-row__authors">{{ highlighted_authors }}</p>{% endif %}
+    {% if publication.author_links %}<p class="publication-row__authors">{% include linked-authors.html authors=publication.author_links %}</p>{% elsif publication.authors %}{% assign highlighted_authors = publication.authors | escape | replace_first: "Yuhao He", "<strong>Yuhao He</strong>" %}<p class="publication-row__authors">{{ highlighted_authors }}</p>{% endif %}
     <p class="publication-row__venue"><span>{{ publication_meta.citation_venue | default: publication.venue | escape }}</span> {{ publication.date | date: "%Y" }}{% if publication_meta.venue_rank %} ({{ publication_meta.venue_rank | escape }}){% endif %}</p>
 
     <div class="publication-row__links" aria-label="Publication resources">

@@ -275,6 +275,14 @@ def render_publication(
         else ""
     )
     authors = override.get("authors") or join_authors([name for _, name in publication.authors])
+    author_links = override.get("author_links") or [
+        {
+            "name": name,
+            "url": f"https://dblp.org/pid/{pid}" if pid else "",
+            "affiliation": "",
+        }
+        for pid, name in publication.authors
+    ]
     description = override.get("description") or (
         "This publication entry is synchronized automatically from DBLP. "
         "Please follow the links below for the latest bibliographic details."
@@ -296,6 +304,7 @@ def render_publication(
         f"venue: {yaml_string(venue)}",
         f"paperurl: {yaml_string(paper_url)}",
         f"authors: {yaml_string(authors)}",
+        f"author_links: {json.dumps(author_links, ensure_ascii=False)}",
         f"abstract: {yaml_string(abstract)}",
         f"image: {yaml_string(image)}",
         f"image_alt: {yaml_string(image_alt)}",

@@ -108,6 +108,25 @@ class SyncPublicationsTests(unittest.TestCase):
         self.assertIn("@article{he2023tfa", content)
         self.assertNotIn("DBLP:journals/ijwmip/HeZM23", content)
 
+    def test_curated_author_links_are_written_to_front_matter(self):
+        publication = next(
+            item for item in self.records if item.key == "journals/ijwmip/HeZM23"
+        )
+        author_links = [
+            {
+                "name": "Yuhao He",
+                "url": "https://anson-he.github.io/",
+                "affiliation": "Foshan University",
+            }
+        ]
+        content, _ = sync.render_publication(
+            publication,
+            {"author_links": author_links},
+            sync.DEFAULT_DBLP_PID,
+        )
+        self.assertIn('author_links: [{"name": "Yuhao He"', content)
+        self.assertIn('"affiliation": "Foshan University"', content)
+
     def test_heartbeat_is_not_rewritten_every_run(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

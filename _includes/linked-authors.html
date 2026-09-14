@@ -1,0 +1,2 @@
+{% assign linked_authors = include.authors %}
+{% for author in linked_authors %}{% unless forloop.first %}{% if forloop.last %}{% if forloop.length > 2 %}, {% endif %}and {% else %}, {% endif %}{% endunless %}<a href="{{ author.url }}" target="_blank" rel="noopener noreferrer"{% if author.affiliation %} title="{{ author.affiliation | escape }}"{% endif %}>{% if author.name == "Yuhao He" %}<strong>{{ author.name | escape }}</strong>{% else %}{{ author.name | escape }}{% endif %}</a>{% endfor %}
