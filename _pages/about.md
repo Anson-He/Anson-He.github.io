@@ -62,6 +62,37 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <p class="more-link">Complete publication records: <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a> · <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a> · <a href="{{ '/publications/' | relative_url }}">Publication archive</a></p>
 
+## Copyrights
+
+<ul class="copyright-list">
+  <li><strong>Strawberry Pest and Disease Identification Mini Program V1.0</strong>, Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China.</li>
+</ul>
+
+## Internship Experience
+
+<div class="experience-list">
+  <div class="experience-row">
+    <a class="experience-row__logo" href="https://www.joyy.com/" target="_blank" rel="noopener noreferrer">
+      <img src="{{ '/images/companies/joyy-logo.jpg' | relative_url }}" alt="JOYY logo" width="112" height="64" loading="lazy">
+    </a>
+    <div class="experience-row__content">
+      <p><strong>JOYY, Guangzhou</strong><span>Feb. 2023 – Jun. 2023</span></p>
+      <p><em>Algorithm Intern</em></p>
+      <p>Developed and maintained risk-control algorithms for social products. Monitored market data and refined risk-control rules, reducing the false-negative rate from 12% to 5%.</p>
+    </div>
+  </div>
+  <div class="experience-row">
+    <a class="experience-row__logo" href="https://dayandata.cn/" target="_blank" rel="noopener noreferrer">
+      <img src="{{ '/images/companies/dayan-data-logo.png' | relative_url }}" alt="Foshan Dayan Data logo" width="88" height="88" loading="lazy">
+    </a>
+    <div class="experience-row__content">
+      <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
+      <p><em>Algorithm and Development Intern</em></p>
+      <p>Curated a dataset of more than 30,000 images across 29 categories and developed an SE-ResNet50-based strawberry disease and pest classifier, achieving 89% accuracy across 14 categories. Led the development of a WeChat mini-program that received software copyright registration and was deployed in local plantations in Foshan.</p>
+    </div>
+  </div>
+</div>
+
 ## Education
 
 <div class="education-list">
@@ -92,6 +123,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
     <div class="education-row__content">
       <p><strong>Foshan University</strong><span>Sept. 2019 – Jun. 2023</span></p>
       <p>B.S. in Mathematics and Applied Mathematics (AI Innovation Class), Department of Mathematics and Big Data</p>
+      <p>Undergraduate advisor: Prof. <a href="https://www.researchgate.net/profile/Xianwei-Zheng-2">Xianwei Zheng</a></p>
     </div>
   </div>
 </div>
@@ -104,35 +136,4 @@ My research works toward secure and trustworthy AI, with a particular interest i
   <li><span>[2021]</span> National Scholarship for Undergraduates.</li>
   <li><span>[2021]</span> National Second Prize, National College Students Mathematical Modeling Competition.</li>
   <li><span>[2020]</span> National Second Prize, Guangdong–Hong Kong–Macao Financial Mathematical Modeling Competition.</li>
-</ul>
-
-## Internship Experience
-
-<div class="experience-list">
-  <div class="experience-row">
-    <a class="experience-row__logo" href="https://www.joyy.com/" target="_blank" rel="noopener noreferrer">
-      <img src="{{ '/images/companies/joyy-logo.jpg' | relative_url }}" alt="JOYY logo" width="112" height="64" loading="lazy">
-    </a>
-    <div class="experience-row__content">
-      <p><strong>JOYY, Guangzhou</strong><span>Feb. 2023 – Jun. 2023</span></p>
-      <p><em>Algorithm Intern</em></p>
-      <p>Developed and maintained risk-control algorithms for social products. Monitored market data and refined risk-control rules, reducing the false-negative rate from 12% to 5%.</p>
-    </div>
-  </div>
-  <div class="experience-row">
-    <div class="experience-row__logo">
-      <img src="{{ '/images/companies/dayan-data-mark.svg' | relative_url }}" alt="Foshan Dayan Data text mark" width="88" height="88" loading="lazy">
-    </div>
-    <div class="experience-row__content">
-      <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
-      <p><em>Algorithm and Development Intern</em></p>
-      <p>Curated a dataset of more than 30,000 images across 29 categories and developed an SE-ResNet50-based strawberry disease and pest classifier, achieving 89% accuracy across 14 categories. Led the development of a WeChat mini-program that received software copyright registration and was deployed in local plantations in Foshan.</p>
-    </div>
-  </div>
-</div>
-
-## Copyrights
-
-<ul class="copyright-list">
-  <li><strong>Strawberry Pest and Disease Identification Mini Program V1.0</strong>, Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China.</li>
 </ul>

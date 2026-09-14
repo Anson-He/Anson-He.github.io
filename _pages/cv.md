@@ -33,6 +33,7 @@ Macau University of Science and Technology · Macau, China<br>
   <div class="timeline__item">
     <p><strong>Foshan University</strong><span>Sept. 2019 – Jun. 2023</span></p>
     <p>B.S. in Mathematics and Applied Mathematics (AI Innovation Class), Department of Mathematics and Big Data</p>
+    <p>Undergraduate advisor: Prof. <a href="https://www.researchgate.net/profile/Xianwei-Zheng-2">Xianwei Zheng</a></p>
   </div>
 </div>
 
@@ -69,9 +70,9 @@ Macau University of Science and Technology · Macau, China<br>
     </div>
   </div>
   <div class="experience-row">
-    <div class="experience-row__logo">
-      <img src="{{ '/images/companies/dayan-data-mark.svg' | relative_url }}" alt="Foshan Dayan Data text mark" width="88" height="88" loading="lazy">
-    </div>
+    <a class="experience-row__logo" href="https://dayandata.cn/" target="_blank" rel="noopener noreferrer">
+      <img src="{{ '/images/companies/dayan-data-logo.png' | relative_url }}" alt="Foshan Dayan Data logo" width="88" height="88" loading="lazy">
+    </a>
     <div class="experience-row__content">
       <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
       <p><em>Algorithm and Development Intern</em></p>
