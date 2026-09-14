@@ -33,7 +33,7 @@ Macau University of Science and Technology · Macau, China<br>
   <div class="timeline__item">
     <p><strong>Foshan University</strong><span>Sept. 2019 – Jun. 2023</span></p>
     <p>B.S. in Mathematics and Applied Mathematics (AI Innovation Class), Department of Mathematics and Big Data</p>
-    <p>Undergraduate advisor: Prof. <a href="https://www.researchgate.net/profile/Xianwei-Zheng-2">Xianwei Zheng</a></p>
+    <p>Supervisor: Prof. <a href="https://www.researchgate.net/profile/Xianwei-Zheng-2">Xianwei Zheng</a></p>
   </div>
 </div>
 
