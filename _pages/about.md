@@ -56,7 +56,9 @@ My research works toward secure and trustworthy AI, with a particular interest i
 <div class="publication-list">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
+  {% unless post.visible == false %}
   {% include jemdoc-publication.html publication=post %}
+  {% endunless %}
 {% endfor %}
 </div>
 

@@ -42,7 +42,9 @@ Macau University of Science and Technology · Macau, China<br>
 <ol class="cv-publications">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
+  {% unless post.visible == false %}
   <li>{{ post.citation }} {% for link in post.links %}{% assign link_label = link.label | downcase %}{% if link_label == "paper" or link_label == "code" %}<a href="{{ link.url }}">[{{ link.label }}]</a>{% endif %}{% endfor %}</li>
+  {% endunless %}
 {% endfor %}
 </ol>
 

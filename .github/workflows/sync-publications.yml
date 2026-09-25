@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 
 concurrency:
   group: sync-publications
@@ -30,14 +32,65 @@ jobs:
       - name: Synchronize publications and news
         run: python scripts/sync_publications.py
 
-      - name: Commit updated publication metadata
+      - name: Keep the daily schedule active
         run: |
-          git add _publications _data/auto_news.yml _data/publication_sync.json
+          git add _data/publication_sync.json
           if git diff --cached --quiet; then
-            echo "No publication changes found."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: sync publications from DBLP"
+          git commit -m "chore: record successful publication check"
           git push
+
+      - name: Check for publication changes
+        id: changes
+        run: |
+          git add _publications _data/auto_news.yml
+          if git diff --cached --quiet; then
+            echo "No publication changes found."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open a hidden-by-default publication review
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          open_reviews=$(gh pr list --state open --limit 100 --json headRefName --jq '[.[] | select(.headRefName | startswith("automation/publication-review-"))] | length')
+          if [ "$open_reviews" -gt 0 ]; then
+            echo "A publication review PR is already open; leaving it untouched for manual review."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          review_branch="automation/publication-review-${GITHUB_RUN_ID}"
+          git switch -c "$review_branch"
+          git commit -m "chore: stage publication updates for review"
+          git push origin "$review_branch"
+
+          gh pr create \
+            --base main \
+            --head "$review_branch" \
+            --title "Review newly discovered publication metadata" \
+            --assignee "Anson-He" \
+            --draft \
+            --body "$(cat <<'EOF'
+          @Anson-He, the daily DBLP check found publication changes that need your review.
+
+          New records are deliberately marked `visible: false`, so they cannot appear on the public homepage before approval.
+
+          To approve a publication:
+
+          1. Check its title, authors, venue, year, links, abstract, and BibTeX in the **Files changed** tab.
+          2. Edit the publication file and change `visible: false` to `visible: true`.
+          3. Mark this pull request ready for review and merge it.
+
+          If the record is incorrect or should stay off the homepage, leave `visible: false` unchanged and merge the pull request. This records the decision and prevents the same paper from triggering another reminder. Closing without merging will cause DBLP to rediscover it on a later run.
+
+          GitHub assigned this pull request to you so that your GitHub notification email receives the review reminder.
+          EOF
+          )"

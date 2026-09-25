@@ -11,6 +11,8 @@ permalink: /publications/
 <div class="publication-list publication-list--archive">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
+  {% unless post.visible == false %}
   {% include jemdoc-publication.html publication=post %}
+  {% endunless %}
 {% endfor %}
 </div>

@@ -13,7 +13,7 @@ Minimal academic homepage for [Yuhao He](https://anson-he.github.io/), inspired 
 
 ## Automatic publication updates
 
-The `Sync publications from DBLP` GitHub Actions workflow runs daily. It reads Yuhao He's DBLP record, applies curated overrides, updates publication files and news, and commits changes only when required.
+The `Sync publications from DBLP` GitHub Actions workflow runs daily. It reads Yuhao He's DBLP record, falls back to DBLP's official SPARQL endpoint when the XML service presents a bot-verification page, and opens an assigned draft pull request when it finds changes. New publications are marked `visible: false` and remain off the live homepage until Yuhao reviews the metadata, changes the flag to `true`, and merges the pull request. The assignment uses GitHub's normal notification email, so no email password is stored in the repository.
 
 ## Local preview
 

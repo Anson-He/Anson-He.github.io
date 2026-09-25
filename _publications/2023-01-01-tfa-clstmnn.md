@@ -14,6 +14,7 @@ image_alt: "Figure 3 from TFA-CLSTMNN, comparing colorful audio spectrograms and
 links: [{"label": "Paper", "url": "https://doi.org/10.1142/S0219691322500588"}, {"label": "Code", "url": "https://github.com/Anson-He/TFA-CLSTMNN-Novel-convolutional-network-for-sound-based-diagnosis-of-COVID-19"}, {"label": "DBLP", "url": "https://dblp.org/rec/journals/ijwmip/HeZM23"}]
 citation: "<strong>Y. H. He</strong>, X. W. Zheng, Q. Miao, &ldquo;TFA-CLSTMNN: Novel Convolutional Network for Sound-Based Diagnosis of COVID-19&rdquo;, <i>IJWMIP</i>."
 dblp_key: "journals/ijwmip/HeZM23"
+visible: true
 generated_by: dblp_sync
 bibtex: |-
   @article{he2023tfa,

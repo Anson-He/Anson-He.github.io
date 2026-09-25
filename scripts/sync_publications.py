@@ -12,6 +12,7 @@ import sys
 import time
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
@@ -23,6 +24,7 @@ from typing import Iterable
 DEFAULT_DBLP_PID = "257/8328-1"
 DEFAULT_SOURCE = f"https://dblp.org/pid/{DEFAULT_DBLP_PID}.xml"
 DEFAULT_BIB_SOURCE = f"https://dblp.org/pid/{DEFAULT_DBLP_PID}.bib"
+DEFAULT_SPARQL_SOURCE = "https://sparql.dblp.org/sparql"
 GENERATED_BY = "dblp_sync"
 USER_AGENT = "Anson-He-Academic-Homepage/1.0 (publication metadata sync)"
 MONTHS = {
@@ -39,6 +41,7 @@ MONTHS = {
     "nov": 11,
     "dec": 12,
 }
+MONTH_NAMES = {value: key for key, value in MONTHS.items()}
 
 
 @dataclass(frozen=True)
@@ -132,6 +135,97 @@ def parse_publications(xml_data: bytes) -> list[Publication]:
     return publications
 
 
+def dblp_sparql_query(pid: str) -> str:
+    return f"""PREFIX dblp: <https://dblp.org/rdf/schema#>
+SELECT ?pub ?bibtexType ?title ?year ?month ?venue ?volume ?number ?pages
+       ?paperUrl ?author ?authorName ?ordinal ?informal WHERE {{
+  ?pub dblp:authoredBy <https://dblp.org/pid/{pid}> ;
+       dblp:title ?title ;
+       dblp:yearOfPublication ?year ;
+       dblp:hasSignature ?signature .
+  ?signature dblp:signatureCreator ?author ;
+             dblp:signatureDblpName ?authorName ;
+             dblp:signatureOrdinal ?ordinal .
+  OPTIONAL {{ ?pub dblp:bibtexType ?bibtexType }}
+  OPTIONAL {{ ?pub dblp:monthOfPublication ?month }}
+  OPTIONAL {{ ?pub dblp:publishedIn ?venue }}
+  OPTIONAL {{ ?pub dblp:publishedInJournalVolume ?volume }}
+  OPTIONAL {{ ?pub dblp:publishedInJournalVolumeIssue ?number }}
+  OPTIONAL {{ ?pub dblp:pagination ?pages }}
+  OPTIONAL {{ ?pub dblp:primaryDocumentPage ?paperUrl }}
+  BIND(EXISTS {{ ?pub a dblp:Informal }} AS ?informal)
+}}
+ORDER BY ?pub ?ordinal"""
+
+
+def fetch_sparql_source(endpoint: str, pid: str) -> bytes:
+    query = urllib.parse.urlencode(
+        {"query": dblp_sparql_query(pid), "format": "json"}
+    )
+    return fetch_source(
+        f"{endpoint}?{query}", accept="application/sparql-results+json"
+    )
+
+
+def parse_sparql_publications(json_data: bytes) -> list[Publication]:
+    """Convert DBLP's official SPARQL results into publication records."""
+    payload = json.loads(json_data.decode("utf-8"))
+    rows = payload.get("results", {}).get("bindings", [])
+    grouped: dict[str, dict] = {}
+
+    def value(row: dict, key: str) -> str:
+        return row.get(key, {}).get("value", "")
+
+    for row in rows:
+        publication_url = value(row, "pub")
+        if "/rec/" not in publication_url:
+            continue
+        key = publication_url.split("/rec/", 1)[1]
+        year = value(row, "year")
+        title = clean_title(value(row, "title"))
+        if not year.isdigit() or not title:
+            continue
+        record = grouped.setdefault(
+            key,
+            {
+                "key": key,
+                "entry_type": value(row, "bibtexType").rsplit("#", 1)[-1].lower()
+                or "article",
+                "publtype": "informal" if value(row, "informal") == "true" else "",
+                "title": title,
+                "year": int(year),
+                "month": "",
+                "venue": value(row, "venue"),
+                "volume": value(row, "volume"),
+                "number": value(row, "number"),
+                "pages": value(row, "pages"),
+                "paper_url": value(row, "paperUrl"),
+                "authors": [],
+            },
+        )
+        month = value(row, "month").lstrip("-")
+        if month.isdigit():
+            record["month"] = MONTH_NAMES.get(int(month), "")
+        author_url = value(row, "author")
+        author_pid = author_url.split("/pid/", 1)[1] if "/pid/" in author_url else ""
+        ordinal = value(row, "ordinal")
+        record["authors"].append(
+            (
+                int(ordinal) if ordinal.isdigit() else len(record["authors"]) + 1,
+                author_pid,
+                clean_author(value(row, "authorName")),
+            )
+        )
+
+    publications = []
+    for record in grouped.values():
+        authors = tuple(
+            (pid, name) for _, pid, name in sorted(record.pop("authors"))
+        )
+        publications.append(Publication(authors=authors, **record))
+    return publications
+
+
 def parse_bibtex_entries(bib_data: bytes) -> dict[str, str]:
     """Split DBLP's person-level BibTeX export into records keyed by DBLP key."""
     text = bib_data.decode("utf-8")
@@ -142,6 +236,8 @@ def parse_bibtex_entries(bib_data: bytes) -> dict[str, str]:
         entry = text[match.start():end].strip()
         if entry:
             entries[match.group(1)] = entry
+    if not entries:
+        raise ValueError("DBLP returned no BibTeX records")
     return entries
 
 
@@ -246,11 +342,34 @@ def yaml_string(value: str) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
+def load_visibility(output_dir: Path) -> dict[str, bool]:
+    """Read review decisions from existing generated publication files.
+
+    Publications created before the review workflow did not have a ``visible``
+    field, so they remain public by default. Newly discovered records have no
+    existing file and are staged as hidden until their review PR is approved.
+    """
+    visibility: dict[str, bool] = {}
+    for path in output_dir.glob("*.md"):
+        content = path.read_text(encoding="utf-8", errors="ignore")
+        key_match = re.search(r'^dblp_key:\s*"([^"]+)"\s*$', content, re.MULTILINE)
+        if not key_match:
+            continue
+        visible_match = re.search(
+            r"^visible:\s*(true|false)\s*$", content, re.MULTILINE | re.IGNORECASE
+        )
+        visibility[key_match.group(1)] = (
+            visible_match is None or visible_match.group(1).lower() == "true"
+        )
+    return visibility
+
+
 def render_publication(
     publication: Publication,
     override: dict,
     target_pid: str,
     bibtex: str = "",
+    visible: bool = True,
 ) -> tuple[str, dict]:
     title = override.get("title") or publication.title
     date = publication_date(publication, override)
@@ -302,6 +421,7 @@ def render_publication(
         f"links: {json.dumps(links, ensure_ascii=False)}",
         f"citation: {yaml_string(citation_for(publication, title, venue, target_pid, override))}",
         f"dblp_key: {yaml_string(publication.key)}",
+        f"visible: {'true' if visible else 'false'}",
         f"generated_by: {GENERATED_BY}",
     ]
     curated_bibtex = override.get("bibtex")
@@ -326,7 +446,7 @@ def render_publication(
         "date": date,
         "date_label": override.get("news_date") or date[:7].replace("-", "."),
         "text": override.get("news_text") or f"🎉 One paper is published in {news_venue}",
-        "show": override.get("show_in_news", True),
+        "show": visible and override.get("show_in_news", True),
     }
     return "\n".join(front_matter), {"filename": filename, "news": news}
 
@@ -382,16 +502,22 @@ def sync(
     overrides = load_overrides(root / "_data" / "publication_overrides.json")
     output_dir = root / "_publications"
     output_dir.mkdir(parents=True, exist_ok=True)
+    current_visibility = load_visibility(output_dir)
     expected: set[Path] = set()
     news_items: list[dict] = []
     bibtex_entries = bibtex_entries or {}
 
     for publication in deduplicate(publications):
+        visible = current_visibility.get(
+            publication.key,
+            bool(overrides.get(publication.key, {}).get("visible", False)),
+        )
         content, metadata = render_publication(
             publication,
             overrides.get(publication.key, {}),
             target_pid,
             bibtex_entries.get(publication.key, ""),
+            visible=visible,
         )
         path = output_dir / metadata["filename"]
         path.write_text(content, encoding="utf-8")
@@ -418,6 +544,10 @@ def parse_args() -> argparse.Namespace:
         "--bib-source",
         default=os.environ.get("DBLP_BIB_SOURCE", DEFAULT_BIB_SOURCE),
     )
+    parser.add_argument(
+        "--sparql-source",
+        default=os.environ.get("DBLP_SPARQL_SOURCE", DEFAULT_SPARQL_SOURCE),
+    )
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--pid", default=DEFAULT_DBLP_PID)
     return parser.parse_args()
@@ -426,10 +556,31 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     try:
-        records = parse_publications(fetch_source(args.source))
-        bibtex_entries = parse_bibtex_entries(
-            fetch_source(args.bib_source, accept="application/x-bibtex")
-        )
+        used_sparql = False
+        try:
+            records = parse_publications(fetch_source(args.source))
+            if not records:
+                raise ValueError("DBLP XML returned no publication records")
+        except Exception as xml_error:
+            used_sparql = True
+            print(
+                f"DBLP XML unavailable ({xml_error}); using the official SPARQL endpoint.",
+                file=sys.stderr,
+            )
+            records = parse_sparql_publications(
+                fetch_sparql_source(args.sparql_source, args.pid)
+            )
+        bibtex_entries = {}
+        if not used_sparql:
+            try:
+                bibtex_entries = parse_bibtex_entries(
+                    fetch_source(args.bib_source, accept="application/x-bibtex")
+                )
+            except Exception as bibtex_error:
+                print(
+                    f"DBLP BibTeX unavailable ({bibtex_error}); curated BibTeX is preserved.",
+                    file=sys.stderr,
+                )
         written, removed = sync(args.root.resolve(), records, args.pid, bibtex_entries)
     except Exception as error:  # Surface a concise message in GitHub Actions logs.
         print(f"Publication sync failed: {error}", file=sys.stderr)

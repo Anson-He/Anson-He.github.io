@@ -14,6 +14,7 @@ image_alt: "Figure 1 from Deferred Poisoning, showing the deferred poisoning dep
 links: [{"label": "Paper", "url": "https://doi.org/10.1609/aaai.v40i26.39318"}, {"label": "arXiv", "url": "https://arxiv.org/abs/2411.03752"}, {"label": "Code", "url": "https://github.com/Anson-He/Deferred-Poisoning-Attack"}, {"label": "MUST News", "url": "https://sgs.must.edu.mo/news.school.news/article/view/id-39098.html"}, {"label": "DBLP", "url": "https://dblp.org/rec/conf/aaai/HeTZDLZ26"}]
 citation: "<strong>Y. H. He</strong>, J. Y. Tian, X. W. Zheng, L. Dong, Y. M. Li, J. T. Zhou, &ldquo;Deferred Poisoning: Making the Model More Vulnerable via Hessian Singularization&rdquo;, <i>AAAI</i>. (CCF A)"
 dblp_key: "conf/aaai/HeTZDLZ26"
+visible: true
 generated_by: dblp_sync
 bibtex: |-
   @article{he2026deferred,

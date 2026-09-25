@@ -6,6 +6,7 @@
     <title>{% if page.url == "/" %}Yuhao He | 何宇浩{% elsif page.title %}{{ page.title | strip_html | escape }} · Yuhao He{% else %}Yuhao He{% endif %}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | escape }}">
     <meta name="author" content="Yuhao He">
+    {% if page.visible == false %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <meta name="keywords" content="Yuhao He, He Yuhao, 何宇浩, Macau University of Science and Technology, secure AI, trustworthy AI, adversarial machine learning, AI-generated content security">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <meta property="og:type" content="website">
