@@ -62,6 +62,12 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <p class="more-link">Complete publication records: <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a> · <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a> · <a href="{{ '/publications/' | relative_url }}">Publication archive</a></p>
 
+## Patents
+
+<ul class="patent-list">
+  <li><strong>Yuhao He</strong> et al., “A ResNet-Based Method and Device for Pest and Disease Recognition,” Chinese Invention Patent Application, Foshan University, Publication No. <a href="https://patents.google.com/patent/CN115035511A/zh">CN115035511A</a>, published Sept. 9, 2022. <em>Notice of Grant received Sept. 21, 2026; registration and grant publication pending.</em></li>
+</ul>
+
 ## Copyrights
 
 <ul class="copyright-list">
