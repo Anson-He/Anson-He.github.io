@@ -1,9 +1,10 @@
-name: Sync publications from DBLP
+name: Sync papers from Semantic Scholar
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 2 * * *"
+    # Mondays at 06:15 UTC, following Drew Dimmery's cadence.
+    - cron: "15 6 * * 1"
 
 permissions:
   contents: write
@@ -11,7 +12,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: sync-publications
+  group: sync-semantic-scholar-papers
   cancel-in-progress: false
 
 jobs:
@@ -26,27 +27,18 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Test publication synchronizer
+      - name: Test paper synchronizer
         run: python -m unittest discover -s tests
 
-      - name: Synchronize publications and news
-        run: python scripts/sync_publications.py
-
-      - name: Keep the daily schedule active
-        run: |
-          git add _data/publication_sync.json
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: record successful publication check"
-          git push
+      - name: Discover new papers
+        env:
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+        run: python scripts/sync_semantic_scholar.py
 
       - name: Check for publication changes
         id: changes
         run: |
-          git add _publications _data/auto_news.yml
+          git add _publications
           if git diff --cached --quiet; then
             echo "No publication changes found."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -79,17 +71,17 @@ jobs:
             --assignee "Anson-He" \
             --draft \
             --body "$(cat <<'EOF'
-          @Anson-He, the daily DBLP check found publication changes that need your review.
+          @Anson-He, the weekly Semantic Scholar check found papers that need your review.
 
           New records are deliberately marked `visible: false`, so they cannot appear on the public homepage before approval.
 
           To approve a publication:
 
-          1. Check its title, authors, venue, year, links, abstract, and BibTeX in the **Files changed** tab.
-          2. Edit the publication file and change `visible: false` to `visible: true`.
-          3. Mark this pull request ready for review and merge it.
+          1. Check its title, authors, venue, year, and links in the **Files changed** tab.
+          2. Replace the placeholder with the official abstract and add publisher/arXiv BibTeX if the paper should be published.
+          3. Change `visible: false` to `visible: true`, mark this pull request ready, and merge it.
 
-          If the record is incorrect or should stay off the homepage, leave `visible: false` unchanged and merge the pull request. This records the decision and prevents the same paper from triggering another reminder. Closing without merging will cause DBLP to rediscover it on a later run.
+          If the record is incorrect or belongs to another researcher with the same name, leave `visible: false` unchanged and merge the pull request. This records the decision and prevents the same paper from triggering another reminder. Closing without merging will cause Semantic Scholar to rediscover it on a later run.
 
           GitHub assigned this pull request to you so that your GitHub notification email receives the review reminder.
           EOF

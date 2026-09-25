@@ -8,12 +8,12 @@ Minimal academic homepage for [Yuhao He](https://anson-he.github.io/), inspired 
 - `_pages/cv.md`: web CV
 - `_publications/`: publication metadata rendered on the homepage and archive
 - `_data/publication_overrides.json`: curated abstracts, links, images, and BibTeX
-- `scripts/sync_publications.py`: DBLP publication and news synchronizer
+- `scripts/sync_semantic_scholar.py`: review-gated Semantic Scholar discovery
 - `assets/css/jemdoc.css`: complete site theme
 
 ## Automatic publication updates
 
-The `Sync publications from DBLP` GitHub Actions workflow runs daily. It reads Yuhao He's DBLP record, falls back to DBLP's official SPARQL endpoint when the XML service presents a bot-verification page, and opens an assigned draft pull request when it finds changes. New publications are marked `visible: false` and remain off the live homepage until Yuhao reviews the metadata, changes the flag to `true`, and merges the pull request. The assignment uses GitHub's normal notification email, so no email password is stored in the repository.
+The `Sync papers from Semantic Scholar` GitHub Actions workflow runs every Monday. It checks Semantic Scholar author `2330150098` and only appends previously unseen paper IDs. New records are marked `visible: false` and remain off the live homepage until Yuhao reviews the metadata, changes the flag to `true`, and merges the assigned draft pull request. The assignment uses GitHub's normal notification email, so no email password is stored in the repository.
 
 ## Local preview
 

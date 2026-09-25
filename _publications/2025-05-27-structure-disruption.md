@@ -14,6 +14,7 @@ image_alt: "Figure 1 from Structure Disruption, comparing unprotected and protec
 links: [{"label": "Paper", "url": "https://arxiv.org/abs/2505.19425"}, {"label": "DBLP", "url": "https://dblp.org/rec/journals/corr/abs-2505-19425"}]
 citation: "<strong>Y. H. He</strong>, J. Y. Tian, H. W. Wu, J. Q. Li, &ldquo;Structure Disruption: Subverting Malicious Diffusion-Based Inpainting via Self-Attention Query Perturbation&rdquo;, <i>arXiv preprint</i>."
 dblp_key: "journals/corr/abs-2505-19425"
+semantic_scholar_id: "835978af7b7cd839139c22a321731f0fe166e088"
 visible: true
 generated_by: dblp_sync
 bibtex: |-

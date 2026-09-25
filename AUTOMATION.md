@@ -1,47 +1,38 @@
-# Publication and News Automation
+# Publication Review Automation
 
-The homepage synchronizes publication metadata from Yuhao He's public DBLP record:
+The homepage follows the review-gated Semantic Scholar workflow used by Drew
+Dimmery's website.
 
-- Source: `https://dblp.org/pid/257/8328-1.xml`
-- Fallback: official DBLP SPARQL endpoint at `https://sparql.dblp.org/sparql`
-- Schedule: every day at 02:17 UTC
-- Manual run: **Actions → Sync publications from DBLP → Run workflow**
+- Source: Semantic Scholar author `2330150098`
+- Schedule: Mondays at 06:15 UTC
+- Manual run: **Actions → Sync papers from Semantic Scholar → Run workflow**
+- Optional secret: `SEMANTIC_SCHOLAR_API_KEY` for a higher API rate limit
 
-The workflow runs `scripts/sync_publications.py` and checks `_publications/` and
-`_data/auto_news.yml` for changes. Existing reviewed records remain visible.
-If DBLP's XML or BibTeX endpoint serves a browser-verification page, the script
-automatically reads the same curated DBLP records through the official SPARQL
-endpoint instead.
-Every newly discovered record is generated with `visible: false`, is excluded
-from the homepage, publication archive, CV, and automatic News, and is staged in
-a draft pull request instead of being pushed directly to the live site.
+The workflow runs `scripts/sync_semantic_scholar.py`. It compares Semantic
+Scholar paper IDs with the IDs already stored in `_publications/`, and only
+appends records it has not seen before. It never overwrites or reorders reviewed
+publication files.
 
-The workflow assigns the draft pull request to the GitHub user `Anson-He` and
-mentions that account in the pull-request body. GitHub therefore sends a review
-notification to the email configured for repository notifications. To publish a
-record, verify its metadata in **Files changed**, edit its publication file from
-`visible: false` to `visible: true`, mark the pull request ready, and merge it.
-To reject a record or keep it hidden, leave `visible: false` unchanged and merge
-the pull request; this records the decision so it will not trigger another daily
-reminder. Closing without merging causes the DBLP record to be rediscovered.
+Every newly discovered record is created with `visible: false`. Hidden records
+are excluded from the homepage, publication archive, web CV, and automatic News.
+The workflow puts the candidates in a draft pull request, assigns the pull
+request to `Anson-He`, and mentions that account in the body. GitHub then sends a
+review notification to the email configured for repository notifications.
 
-Formal conference or journal records take priority over duplicate preprints.
-Curated, citation-ready BibTeX from publisher, DOI, or arXiv metadata takes
-priority over DBLP's person-level BibTeX export, which remains the fallback for
-newly discovered records.
+To approve a paper, verify the title, authors, venue, year, and links in **Files
+changed**. Replace the placeholder with the official abstract, add
+publisher/arXiv BibTeX when available, change `visible: false` to `visible:
+true`, mark the pull request ready, and merge it. Curated presentation fields
+can be added to `_data/publication_overrides.json` when needed.
 
-GitHub can disable scheduled workflows in inactive public repositories. A small
-`_data/publication_sync.json` heartbeat is therefore updated at most once every
-45 days, keeping the schedule active without creating daily no-op commits.
+To reject a paper or keep it hidden, leave `visible: false` unchanged and merge
+the pull request. This stores its Semantic Scholar paper ID and prevents it from
+triggering another weekly reminder. Closing without merging causes the same
+record to be rediscovered later.
 
-Curated descriptions, stable permalinks, and extra links are stored in
-`_data/publication_overrides.json`. Add a record there when a new publication
-needs a custom abstract, paper figure, code link, shorter venue name, author
-initials, citation-ready BibTeX, or acceptance-style news text. An explicit empty
-`image` value disables the figure for that publication. New DBLP records are
-prepared automatically with a neutral image and an abstract placeholder, but
-stay off the live site until reviewed. Automatic News is generated only for
-visible publications.
+Semantic Scholar sometimes merges different researchers who share the same
+name. The review gate is therefore intentional: discovery is automatic, but
+publication is always a human decision.
 
-Non-publication updates can be added to `_data/manual_news.yml`; the synchronizer
-does not overwrite that file.
+Non-publication announcements remain in `_data/manual_news.yml`. The discovery
+workflow does not infer acceptance announcements from bibliographic metadata.
