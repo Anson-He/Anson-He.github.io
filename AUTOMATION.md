@@ -30,6 +30,11 @@ the pull request. This stores its Semantic Scholar paper ID and prevents it from
 triggering another weekly reminder. Closing without merging causes the same
 record to be rediscovered later.
 
+An unreviewed candidate that has been merged into `main` is automatically
+archived after 14 days. Its Markdown file is removed from `_publications/`, and its paper ID is stored in
+`_data/semantic_scholar_ignored.json`, so the same record is not rediscovered.
+Candidates changed to `visible: true` are never archived.
+
 Semantic Scholar sometimes merges different researchers who share the same
 name. The review gate is therefore intentional: discovery is automatic, but
 publication is always a human decision.

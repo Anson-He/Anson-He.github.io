@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date, datetime, timedelta
 import html
 import json
 import os
@@ -27,6 +28,7 @@ USER_AGENT = (
     "(mailto:3250004430@student.must.edu.mo)"
 )
 GENERATED_BY = "semantic_scholar_sync"
+IGNORED_FILENAME = "semantic_scholar_ignored.json"
 
 
 def api_url(author_id: str) -> str:
@@ -146,12 +148,15 @@ def links_for(paper: dict) -> tuple[str, list[dict]]:
     return paper_url, links
 
 
-def render_candidate(paper: dict, author_id: str) -> tuple[str, str]:
+def render_candidate(
+    paper: dict, author_id: str, discovered_at: date | None = None
+) -> tuple[str, str]:
     title = str(paper.get("title") or "Untitled").strip()
-    date = clean_date(paper)
+    publication_date = clean_date(paper)
     paper_id = str(paper["paperId"])
+    discovered_at = discovered_at or date.today()
     slug = slugify(title)
-    filename = f"{date}-{slug}.md"
+    filename = f"{publication_date}-{slug}.md"
     venue = str(paper.get("venue") or "Preprint")
     external_ids = paper.get("externalIds") or {}
     doi = str(external_ids.get("DOI") or "").lower()
@@ -188,7 +193,7 @@ def render_candidate(paper: dict, author_id: str) -> tuple[str, str]:
         f"category: {category}",
         f"permalink: /publication/{slug}",
         f"excerpt: {yaml_string(placeholder)}",
-        f"date: {date}",
+        f"date: {publication_date}",
         f"venue: {yaml_string(venue)}",
         f"paperurl: {yaml_string(paper_url)}",
         f"authors: {yaml_string(authors)}",
@@ -199,6 +204,7 @@ def render_candidate(paper: dict, author_id: str) -> tuple[str, str]:
         f"citation: {yaml_string(citation)}",
         f"dblp_key: {yaml_string(dblp_key)}",
         f"semantic_scholar_id: {yaml_string(paper_id)}",
+        f"discovered_at: {yaml_string(discovered_at.isoformat())}",
         "visible: false",
         f"generated_by: {GENERATED_BY}",
         "---",
@@ -231,10 +237,73 @@ def existing_records(output_dir: Path) -> tuple[set[str], set[str]]:
     return paper_ids, titles
 
 
+def load_ignored(path: Path) -> dict[str, dict]:
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}
+
+
+def prune_stale(
+    root: Path, today: date | None = None, max_age_days: int = 14
+) -> list[dict]:
+    """Archive hidden candidates older than ``max_age_days``.
+
+    The paper file is removed from the public collection, while its Semantic
+    Scholar ID is retained in a small ignored file so it is not rediscovered.
+    Reviewed visible records are never touched.
+    """
+    today = today or date.today()
+    output_dir = root / "_publications"
+    ignored_path = root / "_data" / IGNORED_FILENAME
+    ignored = load_ignored(ignored_path)
+    removed: list[dict] = []
+    cutoff = today - timedelta(days=max_age_days)
+
+    for path in output_dir.glob("*.md"):
+        content = path.read_text(encoding="utf-8", errors="ignore")
+        if f"generated_by: {GENERATED_BY}" not in content:
+            continue
+        if not re.search(r"^visible:\s*false\s*$", content, re.MULTILINE):
+            continue
+        date_match = re.search(r'^discovered_at:\s*"([^"]+)"\s*$', content, re.MULTILINE)
+        id_match = re.search(
+            r'^semantic_scholar_id:\s*"([^"]+)"\s*$', content, re.MULTILINE
+        )
+        title_match = re.search(r'^title:\s*"(.*)"\s*$', content, re.MULTILINE)
+        if not date_match or not id_match:
+            continue
+        try:
+            discovered = date.fromisoformat(date_match.group(1))
+        except ValueError:
+            continue
+        if discovered > cutoff:
+            continue
+        paper_id = id_match.group(1)
+        title = title_match.group(1) if title_match else path.stem
+        ignored[paper_id] = {
+            "title": title,
+            "ignored_at": today.isoformat(),
+            "reason": f"unreviewed after {max_age_days} days",
+        }
+        path.unlink()
+        removed.append({"paper_id": paper_id, "title": title})
+
+    if removed:
+        ignored_path.parent.mkdir(parents=True, exist_ok=True)
+        ignored_path.write_text(
+            json.dumps(dict(sorted(ignored.items())), ensure_ascii=False, indent=2)
+            + "\n",
+            encoding="utf-8",
+        )
+    return removed
+
+
 def sync(root: Path, papers: list[dict], author_id: str) -> list[dict]:
     output_dir = root / "_publications"
     output_dir.mkdir(parents=True, exist_ok=True)
     known_ids, known_titles = existing_records(output_dir)
+    ignored = load_ignored(root / "_data" / IGNORED_FILENAME)
     added = []
 
     for paper in papers:
@@ -242,7 +311,11 @@ def sync(root: Path, papers: list[dict], author_id: str) -> list[dict]:
         title = str(paper.get("title") or "")
         if not paper_id or not title:
             continue
-        if paper_id in known_ids or normalized_title(title) in known_titles:
+        if (
+            paper_id in known_ids
+            or paper_id in ignored
+            or normalized_title(title) in known_titles
+        ):
             continue
         filename, content = render_candidate(paper, author_id)
         path = output_dir / filename
@@ -261,15 +334,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--author-id", default=DEFAULT_AUTHOR_ID)
     parser.add_argument("--source", default=os.environ.get("SEMANTIC_SCHOLAR_SOURCE"))
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument(
+        "--prune-only",
+        action="store_true",
+        help="archive hidden candidates older than 14 days without calling the API",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    root = args.root.resolve()
+    if args.prune_only:
+        removed = prune_stale(root)
+        print(f"Archived {len(removed)} stale hidden candidate(s).")
+        return 0
     source = args.source or api_url(args.author_id)
     try:
         papers = fetch_papers(source, os.environ.get("SEMANTIC_SCHOLAR_API_KEY", ""))
-        added = sync(args.root.resolve(), papers, args.author_id)
+        added = sync(root, papers, args.author_id)
     except Exception as error:
         print(f"Semantic Scholar sync failed: {error}", file=sys.stderr)
         return 1

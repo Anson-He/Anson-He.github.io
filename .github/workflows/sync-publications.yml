@@ -30,6 +30,21 @@ jobs:
       - name: Test paper synchronizer
         run: python -m unittest discover -s tests
 
+      - name: Archive stale review candidates
+        run: python scripts/sync_semantic_scholar.py --prune-only
+
+      - name: Commit archived candidates
+        run: |
+          git add _publications _data/semantic_scholar_ignored.json
+          if git diff --cached --quiet; then
+            echo "No stale candidates to archive."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: archive stale publication candidates"
+          git push
+
       - name: Discover new papers
         env:
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
