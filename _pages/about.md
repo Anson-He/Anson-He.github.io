@@ -65,8 +65,8 @@ My research works toward secure and trustworthy AI, with a particular interest i
 ## Patents & Copyrights
 
 <ul class="patent-list">
-  <li><strong>Yuhao He</strong> et al., “A ResNet-Based Method and Device for Pest and Disease Recognition,” Chinese Invention Patent Application, Foshan University, Publication No. <a href="https://patents.google.com/patent/CN115035511A/zh">CN115035511A</a>, published Sept. 9, 2022. <em>Notice of Grant received Sept. 21, 2026; registration and grant publication pending.</em></li>
-  <li><strong>Strawberry Pest and Disease Identification Mini Program V1.0</strong>, Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China.</li>
+  <li>Chuntao Jiang, Guanshou Gan, Xuncan Xiao, <strong>Yuhao He</strong>, et al., “A Method and Device for Pest and Disease Identification Based on a Residual Network,” Chinese Patent Application No. 202210536421.0, Foshan University, Publication No. <a href="https://patents.google.com/patent/CN115035511A/zh">CN115035511A</a>, Sept. 9, 2022. <em>Notice of Grant received Sept. 21, 2026; registration and grant publication pending.</em></li>
+  <li>Foshan Dayan Data Technology Co., Ltd., <strong>Yuhao He</strong>, et al., “Strawberry Pest and Disease Identification Mini Program V1.0,” Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China, Nov. 7, 2021.</li>
 </ul>
 
 ## Internship Experience
