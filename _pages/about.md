@@ -43,10 +43,8 @@ My research works toward secure and trustworthy AI, with a particular interest i
 ## News
 
 <ul class="news-list">
-{% for item in site.data.auto_news %}
-  <li><span>[{{ item.date }}]</span> {{ item.text }}</li>
-{% endfor %}
-{% for item in site.data.manual_news %}
+{% assign combined_news = site.data.auto_news | concat: site.data.manual_news | sort: "date" | reverse %}
+{% for item in combined_news %}
   <li><span>[{{ item.date }}]</span> {{ item.text }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</li>
 {% endfor %}
 </ul>
