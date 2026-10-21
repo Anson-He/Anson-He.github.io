@@ -106,6 +106,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
     <div class="education-row__content">
       <p><strong>Macau University of Science and Technology</strong><span>Sept. 2025 – present</span></p>
       <p>Ph.D. in Artificial Intelligence, Faculty of Innovation Engineering</p>
+      <p>GPA: 3.85/4.0</p>
       <p>Supervisor: Prof. <a href="https://jinyutian.github.io/">Jinyu Tian</a></p>
     </div>
   </div>
@@ -116,6 +117,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
     <div class="education-row__content">
       <p><strong>Macau University of Science and Technology</strong><span>Sept. 2023 – Jun. 2025</span></p>
       <p>M.S. in Intelligent Technology, Faculty of Innovation Engineering</p>
+      <p>GPA: 3.71/4.0</p>
       <p>Supervisor: Prof. <a href="https://jinyutian.github.io/">Jinyu Tian</a></p>
     </div>
   </div>
@@ -126,6 +128,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
     <div class="education-row__content">
       <p><strong>Foshan University</strong><span>Sept. 2019 – Jun. 2023</span></p>
       <p>B.S. in Mathematics and Applied Mathematics (AI Innovation Class), Department of Mathematics and Big Data</p>
+      <p>GPA: 86.8/100 · Ranking: 5/72</p>
       <p>Supervisor: Prof. <a href="https://www.researchgate.net/profile/Xianwei-Zheng-2">Xianwei Zheng</a></p>
     </div>
   </div>
@@ -134,9 +137,9 @@ My research works toward secure and trustworthy AI, with a particular interest i
 ## Honors & Awards
 
 <ul class="honors-list">
+  <li><span>[2021]</span> <strong>National Scholarship for Undergraduates.</strong></li>
+  <li><span>[2021]</span> National Second Prize, China Undergraduate Mathematical Contest in Modeling.</li>
+  <li><span>[2020]</span> Second Prize, Guangdong–Hong Kong–Macao Mathematical and Financial Modeling Competition.</li>
   <li><span>[2023]</span> Outstanding Undergraduate Graduate, Foshan University.</li>
   <li><span>[2023]</span> Recipient of the Foshan Specialty Medical Catheters Innovation and Entrepreneurship Scholarship.</li>
-  <li><span>[2021]</span> National Scholarship for Undergraduates.</li>
-  <li><span>[2021]</span> National Second Prize, National College Students Mathematical Modeling Competition.</li>
-  <li><span>[2020]</span> National Second Prize, Guangdong–Hong Kong–Macao Financial Mathematical Modeling Competition.</li>
 </ul>
