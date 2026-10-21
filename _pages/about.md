@@ -137,9 +137,9 @@ My research works toward secure and trustworthy AI, with a particular interest i
 ## Honors & Awards
 
 <ul class="honors-list">
+  <li><span>[2023]</span> Outstanding Undergraduate Graduate, Foshan University.</li>
+  <li><span>[2023]</span> Recipient of the Foshan Specialty Medical Catheters Innovation and Entrepreneurship Scholarship.</li>
   <li><span>[2021]</span> <strong>National Scholarship for Undergraduates.</strong></li>
   <li><span>[2021]</span> National Second Prize, China Undergraduate Mathematical Contest in Modeling.</li>
   <li><span>[2020]</span> Second Prize, Guangdong–Hong Kong–Macao Mathematical and Financial Modeling Competition.</li>
-  <li><span>[2023]</span> Outstanding Undergraduate Graduate, Foshan University.</li>
-  <li><span>[2023]</span> Recipient of the Foshan Specialty Medical Catheters Innovation and Entrepreneurship Scholarship.</li>
 </ul>
