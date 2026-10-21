@@ -88,8 +88,10 @@ My research works toward secure and trustworthy AI, with a particular interest i
     <div class="experience-row__content">
       <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
       <p><em>Algorithm and Development Intern</em></p>
-      <p>Contributed to the development of a deep learning-based strawberry disease and pest recognition system, achieving 89% accuracy across 14 categories.</p>
-      <p>Led the development of a WeChat mini-program deployed in local strawberry farms, resulting in a registered software copyright.</p>
+      <ul>
+        <li>Contributed to the development of a deep learning-based strawberry disease and pest recognition system, achieving 89% accuracy across 14 categories.</li>
+        <li>Led the development of a WeChat mini-program deployed in local strawberry farms, resulting in a registered software copyright.</li>
+      </ul>
     </div>
   </div>
 </div>
