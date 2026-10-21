@@ -68,7 +68,7 @@ Macau University of Science and Technology · Macau, China<br>
     <div class="experience-row__content">
       <p><strong>JOYY, Guangzhou</strong><span>Feb. 2023 – Jun. 2023</span></p>
       <p><em>Algorithm Intern</em></p>
-      <p>Developed and maintained risk-control algorithms for social products. Monitored market data and refined risk-control rules, reducing the false-negative rate from 12% to 5%.</p>
+      <p>Improved the detection of policy-violating promotional content on social media platforms by optimizing content filtering rules, reducing the false-negative rate from 12% to 5%.</p>
     </div>
   </div>
   <div class="experience-row">
@@ -78,7 +78,8 @@ Macau University of Science and Technology · Macau, China<br>
     <div class="experience-row__content">
       <p><strong>Foshan Dayan Data Technology Co., Ltd.</strong><span>Jun. 2021 – Aug. 2021</span></p>
       <p><em>Algorithm and Development Intern</em></p>
-      <p>Curated a dataset of more than 30,000 images across 29 categories and developed an SE-ResNet50-based strawberry disease and pest classifier, achieving 89% accuracy across 14 categories. Led the development of a WeChat mini-program that received software copyright registration and was deployed in local plantations in Foshan.</p>
+      <p>Contributed to the development of a deep learning-based strawberry disease and pest recognition system, achieving 89% accuracy across 14 categories.</p>
+      <p>Led the development of a WeChat mini-program deployed in local strawberry farms, resulting in a registered software copyright.</p>
     </div>
   </div>
 </div>
@@ -91,4 +92,4 @@ Macau University of Science and Technology · Macau, China<br>
 
 ## Academic Profiles
 
-[Google Scholar](https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ) · [DBLP](https://dblp.org/pid/257/8328-1.html) · [ORCID](https://orcid.org/0009-0002-8778-5025) · [OpenReview](https://openreview.net/profile?id=~Yuhao_He2) · [GitHub](https://github.com/Anson-He)
+[Google Scholar](https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ) · [OpenReview](https://openreview.net/profile?id=~Yuhao_He2) · [GitHub](https://github.com/Anson-He)
