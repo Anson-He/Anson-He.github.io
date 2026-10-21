@@ -13,7 +13,7 @@ Ph.D. Student in Artificial Intelligence<br>
 Macau University of Science and Technology · Macau, China<br>
 <a href="mailto:3250004430@student.must.edu.mo">3250004430@student.must.edu.mo</a></p>
 
-<p><a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[Download PDF CV]</a></p>
+<p><a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[Download CV (English)]</a> · <a href="{{ '/files/Yuhao_He_CV_CN.pdf' | relative_url }}" lang="zh-CN">[下载中文简历]</a></p>
 
 <p><strong>Research focus:</strong> Secure and trustworthy AI, with a particular interest in protecting visual content from malicious generative editing. Current directions include Adversarial Machine Learning, Data Poisoning and Protection, and AI-Generated Content Security.</p>
 

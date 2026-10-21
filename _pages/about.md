@@ -25,7 +25,8 @@ redirect_from:
       <a href="https://dblp.org/pid/257/8328-1.html">[DBLP]</a>
       <a href="https://orcid.org/0009-0002-8778-5025">[ORCID]</a>
       <a href="https://github.com/Anson-He">[GitHub]</a>
-      <a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[CV]</a>
+      <a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[CV (English)]</a>
+      <a href="{{ '/files/Yuhao_He_CV_CN.pdf' | relative_url }}" lang="zh-CN">[中文简历]</a>
     </p>
   </div>
 </header>
