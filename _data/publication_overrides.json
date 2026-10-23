@@ -12,7 +12,6 @@
     "show_in_news": true,
     "citation_authors": ["Y. H. He", "J. Y. Tian", "X. W. Zheng", "L. Dong", "Y. M. Li", "J. T. Zhou"],
     "citation_venue": "AAAI",
-    "venue_rank": "CCF A",
     "bibtex": [
       "@article{he2026deferred,",
       "  author  = {He, Yuhao and Tian, Jinyu and Zheng, Xianwei and Dong, Li and Li, Yuanman and Zhou, Jiantao},",
