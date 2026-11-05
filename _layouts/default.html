@@ -39,6 +39,10 @@
       }
     </script>
     {% endif %}
+    {% if site.goatcounter_code and jekyll.environment == "production" %}
+    <script data-goatcounter="https://{{ site.goatcounter_code | escape }}.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+    {% endif %}
   </head>
   <body>
     <a class="github-corner" href="https://github.com/Anson-He" aria-label="View Yuhao He on GitHub">

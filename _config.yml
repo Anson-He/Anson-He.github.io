@@ -59,3 +59,6 @@ plugins:
 whitelist:
   - jekyll-sitemap
   - jekyll-redirect-from
+
+# GoatCounter analytics (hosted site code; not a secret).
+goatcounter_code: "anson-he"
