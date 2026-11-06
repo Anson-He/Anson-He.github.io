@@ -20,7 +20,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
 - Data Poisoning and Protection
 - AI-Generated Content Security
 
-<div class="callout">I am looking for <strong>research internships</strong> and <strong>postdoctoral opportunities</strong>. Please feel free to <a href="mailto:3250004430@student.must.edu.mo">get in touch</a>.</div>
+<div class="callout">I am looking for <strong>research internships</strong> and <strong>postdoctoral opportunities</strong> (available to start remotely before graduation). Please feel free to <a href="mailto:3250004430@student.must.edu.mo">get in touch</a>.</div>
 
 </section>
 

@@ -471,17 +471,17 @@ main > h2, .publication-page h2 { margin: 40px 0 22px; padding-bottom: 12px; bor
 .bio p { font-size: 19px; line-height: 1.75; }
 .bio li { font-size: 16px; line-height: 1.8; }
 .bio .callout {
-  font-size: 18px;
-  line-height: 1.75;
-  margin-top: 28px;
-  padding: 22px 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 24px;
+  padding: 18px 20px;
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
   border-radius: 10px;
   background: var(--accent-soft);
   color: var(--callout-text);
 }
-.bio .callout strong { font-size: 1.06em; font-weight: 700; }
+.bio .callout strong { font-size: 1em; font-weight: 700; }
 .bio .callout a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .profile-sidebar .avatar { border-radius: 50%; }
 .news-list li { font-size: 15.5px; line-height: 1.7; }
@@ -510,7 +510,7 @@ pre { font-size: 12px; }
 @media (max-width: 520px) {
   .section-head h2 { font-size: 12px; }
   .bio p { font-size: 18.5px; }
-  .bio .callout { font-size: 17px; padding: 18px 20px; }
+  .bio .callout { font-size: 16.5px; padding: 16px 18px; }
   .experience-row, .education-row { grid-template-columns: 60px minmax(0,1fr); gap: 14px; }
   .experience-row__logo, .education-row__logo { width: 60px; height: 60px; padding: 5px; }
   .publication-row__title { font-size: 17px; }
