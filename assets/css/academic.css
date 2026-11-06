@@ -464,3 +464,55 @@ main > h2, .publication-page h2 { margin: 40px 0 22px; padding-bottom: 12px; bor
   .experience-row, .education-row { grid-template-columns: 48px minmax(0,1fr); }
   .experience-row__logo, .education-row__logo { width: 48px; height: 48px; padding: 4px; }
 }
+
+/* More generous reading scale and a prominent opportunity callout. */
+#layout-content { font-size: 16px; }
+.section-head h2 { font-size: 14px; }
+.bio p { font-size: 19px; line-height: 1.75; }
+.bio li { font-size: 16px; line-height: 1.8; }
+.bio .callout {
+  font-size: 18px;
+  line-height: 1.75;
+  margin-top: 28px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--callout-text);
+}
+.bio .callout strong { font-size: 1.06em; font-weight: 700; }
+.bio .callout a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.profile-sidebar .avatar { border-radius: 50%; }
+.news-list li { font-size: 15.5px; line-height: 1.7; }
+.news-list .date { font-size: 12px; }
+.publication-row__title { font-size: 18px; line-height: 1.45; }
+.publication-row__authors { font-size: 14.5px; line-height: 1.7; }
+.publication-row__venue { font-size: 12px; }
+.publication-row__links > a, .publication-row__links summary { font-size: 12.5px; padding: 5px 10px; }
+.publication-row__links details, .publication-row__abstract { font-size: 15px; }
+.more-link { font-size: 14px; line-height: 1.7; }
+.experience-row, .education-row { grid-template-columns: 80px minmax(0,1fr); gap: 20px; }
+.experience-row__logo, .education-row__logo { width: 80px; height: 80px; padding: 6px; border-radius: 12px; }
+.experience-row__content p, .education-row__content p { font-size: 15px; line-height: 1.75; }
+.experience-row__content strong, .education-row__content strong { font-size: 16px; }
+.experience-row__content ul { font-size: 15px; line-height: 1.75; }
+.experience-row__content span, .education-row__content span, .timeline__item span { font-size: 12px; }
+.honors-list > li { font-size: 15px; line-height: 1.75; }
+.honors-list span { font-size: 12px; }
+.patent-list li, .copyright-list li { font-size: 15px; line-height: 1.85; }
+.service-role, .service-list { font-size: 16px; line-height: 1.75; }
+.timeline__item p, .cv-publications { font-size: 15px; line-height: 1.75; }
+main > h2, .publication-page h2 { font-size: 14px; }
+.text-links { font-size: 15px; }
+pre { font-size: 12px; }
+.site-footer { font-size: 14px; }
+@media (max-width: 520px) {
+  .section-head h2 { font-size: 12px; }
+  .bio p { font-size: 18.5px; }
+  .bio .callout { font-size: 17px; padding: 18px 20px; }
+  .experience-row, .education-row { grid-template-columns: 60px minmax(0,1fr); gap: 14px; }
+  .experience-row__logo, .education-row__logo { width: 60px; height: 60px; padding: 5px; }
+  .publication-row__title { font-size: 17px; }
+  .news-list li { font-size: 15px; }
+}
