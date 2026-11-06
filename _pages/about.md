@@ -43,6 +43,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <div class="section-head"><h2>Publications</h2><span class="section-rule" aria-hidden="true"></span></div>
 
+<div class="publication-scroll" role="region" aria-label="Publications" tabindex="0">
 <div class="publication-list">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
@@ -50,6 +51,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
   {% include jemdoc-publication.html publication=post %}
   {% endunless %}
 {% endfor %}
+</div>
 </div>
 
 <p class="more-link">Complete publication records: <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a> · <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a> · <a href="{{ '/publications/' | relative_url }}">Publication archive</a></p>
