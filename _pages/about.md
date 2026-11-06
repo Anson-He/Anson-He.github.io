@@ -32,7 +32,7 @@ My research works toward secure and trustworthy AI, with a particular interest i
 <ul class="news-list">
 {% assign combined_news = site.data.auto_news | concat: site.data.manual_news | sort: "date" | reverse %}
 {% for item in combined_news %}
-  <li><span class="date">{{ item.date }}</span><div>{{ item.text }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</div></li>
+  <li><span class="date">{{ item.date }}</span><div>{{ item.text | replace: 'NeurIPS 2026', '<strong>NeurIPS 2026</strong>' | replace: 'AAAI 2026', '<strong>AAAI 2026</strong>' }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</div></li>
 {% endfor %}
 </ul>
 </div>
