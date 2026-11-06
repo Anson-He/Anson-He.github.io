@@ -1,8 +1,8 @@
 # Optional curated updates. These are preserved when publications sync.
 - date: "2026.09"
   text: "🎉 One paper is accepted by NeurIPS 2026"
-- date: "2026.08"
-  text: "💻 Updated code for Deferred Poisoning (AAAI 2026) is available."
+- date: "2025.11"
+  text: "💻 Code for Deferred Poisoning (AAAI 2026) is now available!"
   url: "https://github.com/Anson-He/Deferred-Poisoning-Attack"
   label: "Code"
 - date: "2026.11"
