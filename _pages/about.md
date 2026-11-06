@@ -9,7 +9,7 @@ redirect_from:
 
 <header class="profile-header">
   <div class="profile-header__photo">
-    <img src="{{ '/images/google-scholar-avatar.jpg' | relative_url }}" alt="Yuhao He | 何宇浩" width="190" height="190">
+    <img src="{{ '/images/yuhao-he-poster.jpg' | relative_url }}" alt="Yuhao He | 何宇浩" width="190" height="190">
   </div>
   <div class="profile-header__info">
     <h1>Yuhao He <span class="chinese-name">何宇浩</span></h1>

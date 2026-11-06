@@ -13,9 +13,9 @@
     <meta property="og:title" content="{% if page.url == "/" %}Yuhao He | 何宇浩{% else %}{{ page.title | default: site.title | strip_html | escape }}{% endif %}">
     <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | escape }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/images/google-scholar-avatar.jpg' | absolute_url }}">
-    <link rel="icon" type="image/png" sizes="64x64" href="{{ '/images/favicon-yuhao.png' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/jemdoc.css' | relative_url }}?v=20260925-1">
+    <meta property="og:image" content="{{ '/images/yuhao-he-poster.jpg' | absolute_url }}">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="{{ '/images/favicon-yh.svg' | relative_url }}?v=20261106">
+    <link rel="stylesheet" href="{{ '/assets/css/jemdoc.css' | relative_url }}?v=20261106-avatar">
     {% if page.url == "/" %}
     <script type="application/ld+json">
       {
@@ -24,7 +24,7 @@
         "name": "Yuhao He",
         "alternateName": "何宇浩",
         "url": "{{ site.url }}",
-        "image": "{{ '/images/google-scholar-avatar.jpg' | absolute_url }}",
+        "image": "{{ '/images/yuhao-he-poster.jpg' | absolute_url }}",
         "jobTitle": "Ph.D. Student in Artificial Intelligence",
         "affiliation": {
           "@type": "CollegeOrUniversity",
