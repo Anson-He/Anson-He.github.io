@@ -7,29 +7,10 @@ redirect_from:
   - /about.html
 ---
 
-<header class="profile-header">
-  <div class="profile-header__photo">
-    <img src="{{ '/images/google-scholar-avatar.jpg' | relative_url }}" alt="Yuhao He | 何宇浩" width="190" height="190">
-  </div>
-  <div class="profile-header__info">
-    <h1>Yuhao He <span class="chinese-name">何宇浩</span></h1>
-    <p class="profile-role">Ph.D. Student in Artificial Intelligence</p>
-    <p>
-      Faculty of Innovation Engineering<br>
-      Macau University of Science and Technology<br>
-      Macau, China<br>
-      Email: <a href="mailto:3250004430@student.must.edu.mo">3250004430@student.must.edu.mo</a>
-    </p>
-    <p class="profile-links">
-      <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">[Google Scholar]</a>
-      <a href="https://github.com/Anson-He">[GitHub]</a>
-      <a href="{{ '/files/Yuhao_He_CV.pdf' | relative_url }}">[CV (English)]</a>
-      <a href="{{ '/files/Yuhao_He_CV_CN.pdf' | relative_url }}" lang="zh-CN">[中文简历]</a>
-    </p>
-  </div>
-</header>
 
-## Biography
+<section id="about" class="content-section bio" markdown="1">
+
+<div class="section-head"><h2>About</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. student in Artificial Intelligence in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/).
 
@@ -39,16 +20,24 @@ My research works toward secure and trustworthy AI, with a particular interest i
 - Data Poisoning and Protection
 - AI-Generated Content Security
 
-## News
+</section>
+
+<section id="news" class="content-section" markdown="1">
+
+<div class="section-head"><h2>News</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <ul class="news-list">
 {% assign combined_news = site.data.auto_news | concat: site.data.manual_news | sort: "date" | reverse %}
 {% for item in combined_news %}
-  <li><span>[{{ item.date }}]</span> {{ item.text }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</li>
+  <li><span class="date">{{ item.date }}</span><div>{{ item.text }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</div></li>
 {% endfor %}
 </ul>
 
-<h2 id="publications">Publications</h2>
+</section>
+
+<section id="publications" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Publications</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <div class="publication-list">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
@@ -61,14 +50,22 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <p class="more-link">Complete publication records: <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a> · <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a> · <a href="{{ '/publications/' | relative_url }}">Publication archive</a></p>
 
-## Patents & Copyrights
+</section>
+
+<section id="patents-copyrights" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Patents & Copyrights</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <ul class="patent-list">
   <li><strong>[Granted Patent]</strong> Chuntao Jiang, Guanshou Gan, Xuncan Xiao, <strong>Yuhao He</strong>, et al., “A Method and Device for Pest and Disease Identification Based on a Residual Network,” Chinese Invention Patent No. ZL202210536421.0, Foshan University, Grant Publication No. CN115035511B, granted Nov. 3, 2026. <a href="https://patents.google.com/patent/CN115035511A/zh">[Application publication]</a></li>
   <li><strong>[Software Copyright]</strong> Foshan Dayan Data Technology Co., Ltd., <strong>Yuhao He</strong>, et al., “Strawberry Pest and Disease Identification Mini Program V1.0,” Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China, Nov. 7, 2021.</li>
 </ul>
 
-## Internship Experience
+</section>
+
+<section id="internship-experience" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Internship Experience</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <div class="experience-list">
   <div class="experience-row">
@@ -96,7 +93,11 @@ My research works toward secure and trustworthy AI, with a particular interest i
   </div>
 </div>
 
-## Education
+</section>
+
+<section id="education" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Education</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <div class="education-list">
   <div class="education-row">
@@ -134,7 +135,11 @@ My research works toward secure and trustworthy AI, with a particular interest i
   </div>
 </div>
 
-## Honors & Awards
+</section>
+
+<section id="honors-awards" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Honors & Awards</h2><span class="section-rule" aria-hidden="true"></span></div>
 
 <ul class="honors-list">
   <li><span>[2023]</span> Outstanding Undergraduate Graduate, Foshan University.</li>
@@ -143,3 +148,5 @@ My research works toward secure and trustworthy AI, with a particular interest i
   <li><span>[2021]</span> National Second Prize, China Undergraduate Mathematical Contest in Modeling.</li>
   <li><span>[2020]</span> Second Prize, Guangdong–Hong Kong–Macao Mathematical and Financial Modeling Competition.</li>
 </ul>
+
+</section>

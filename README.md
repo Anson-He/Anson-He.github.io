@@ -1,6 +1,6 @@
 # Yuhao He's Academic Homepage
 
-Minimal academic homepage for [Yuhao He](https://anson-he.github.io/), inspired by the visual simplicity of Jemdoc while retaining Jekyll data collections.
+Academic homepage for [Yuhao He](https://anson-he.github.io/), with a responsive sidebar and publication-card design adapted from boyugou’s academic homepage template, retaining Jekyll data collections.
 
 ## Content
 
@@ -9,7 +9,8 @@ Minimal academic homepage for [Yuhao He](https://anson-he.github.io/), inspired 
 - `_publications/`: publication metadata rendered on the homepage and archive
 - `_data/publication_overrides.json`: curated abstracts, links, images, and BibTeX
 - `scripts/sync_semantic_scholar.py`: review-gated Semantic Scholar discovery
-- `assets/css/jemdoc.css`: complete site theme
+- `assets/css/academic.css`: light/dark site theme
+- `assets/js/academic.js`: theme switching and production visitor counter
 
 ## Automatic publication updates
 
@@ -26,3 +27,11 @@ bundle exec jekyll serve
 ```
 
 Then open `http://127.0.0.1:4000/`.
+
+## Design credits
+
+The sidebar layout, theme tokens and publication card styles are adapted from [boyugou/academic-homepage-template](https://github.com/boyugou/academic-homepage-template) (MIT). The license is retained in `assets/vendor/academic-homepage-template-LICENSE.txt`. Content continues to use Jekyll collections and the existing review-gated publication workflow.
+
+## Visitor counter
+
+The production site loads Busuanzi to display site-wide page views and visitors in the footer. Local previews do not load the counter; unavailable values are shown as a dash rather than fabricated counts. GoatCounter is no longer loaded.
