@@ -12,13 +12,15 @@ redirect_from:
 
 <div class="section-head"><h2>About</h2><span class="section-rule" aria-hidden="true"></span></div>
 
-I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. student in Artificial Intelligence in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/).
+I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. student in Artificial Intelligence (expected graduation: 2028.06) in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/).
 
 My research works toward secure and trustworthy AI, with a particular interest in **protecting visual content from malicious generative editing**. My current research directions include:
 
 - Adversarial Machine Learning
 - Data Poisoning and Protection
 - AI-Generated Content Security
+
+<div class="callout">I am looking for <strong>research internships</strong> and <strong>postdoctoral opportunities</strong>. Please feel free to <a href="mailto:3250004430@student.must.edu.mo">get in touch</a>.</div>
 
 </section>
 
@@ -147,6 +149,18 @@ My research works toward secure and trustworthy AI, with a particular interest i
   <li><span>[2021]</span> <strong>National Scholarship for Undergraduates.</strong></li>
   <li><span>[2021]</span> National Second Prize, China Undergraduate Mathematical Contest in Modeling.</li>
   <li><span>[2020]</span> Second Prize, Guangdong–Hong Kong–Macao Mathematical and Financial Modeling Competition.</li>
+</ul>
+
+</section>
+
+<section id="academic-service" class="content-section" markdown="1">
+
+<div class="section-head"><h2>Academic Service</h2><span class="section-rule" aria-hidden="true"></span></div>
+
+<p class="service-role">Journal Reviewer</p>
+<ul class="service-list">
+  <li><a href="https://ieee-cas.org/publication/tcsvt">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</a></li>
+  <li><a href="https://www.sciencedirect.com/journal/pattern-recognition">Pattern Recognition (PR)</a></li>
 </ul>
 
 </section>

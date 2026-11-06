@@ -9,7 +9,7 @@ redirect_from:
 <h1 class="page-title">Curriculum Vitae</h1>
 
 <p><strong>Yuhao He | 何宇浩</strong><br>
-Ph.D. Student in Artificial Intelligence<br>
+Ph.D. Student in Artificial Intelligence (expected graduation: 2028.06)<br>
 Macau University of Science and Technology · Macau, China<br>
 <a href="mailto:3250004430@student.must.edu.mo">3250004430@student.must.edu.mo</a></p>
 
@@ -94,6 +94,14 @@ Macau University of Science and Technology · Macau, China<br>
 <ul class="copyright-list">
   <li><strong>[Granted Patent]</strong> Chuntao Jiang, Guanshou Gan, Xuncan Xiao, <strong>Yuhao He</strong>, et al., “A Method and Device for Pest and Disease Identification Based on a Residual Network,” Chinese Invention Patent No. ZL202210536421.0, Foshan University, Grant Publication No. CN115035511B, granted Nov. 3, 2026. <a href="https://patents.google.com/patent/CN115035511A/zh">[Application publication]</a></li>
   <li><strong>Strawberry Pest and Disease Identification Mini Program V1.0</strong>, Software Copyright Registration No. 2022SRA003183, National Copyright Administration of the People’s Republic of China.</li>
+</ul>
+
+## Academic Service
+
+<p class="service-role">Journal Reviewer</p>
+<ul class="service-list">
+  <li><a href="https://ieee-cas.org/publication/tcsvt">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</a></li>
+  <li><a href="https://www.sciencedirect.com/journal/pattern-recognition">Pattern Recognition (PR)</a></li>
 </ul>
 
 ## Academic Profiles
