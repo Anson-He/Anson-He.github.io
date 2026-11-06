@@ -83,14 +83,14 @@ aside { position: sticky; top: 72px; align-self: start; }
 
 /* ─── Sidebar ────────────────────────────────────────────────── */
 .avatar {
-  width: 104px; height: 104px; border-radius: 50%; object-fit: cover;
+  width: 144px; height: 144px; border-radius: 50%; object-fit: cover;
   margin-bottom: 24px;
 }
 .name {
-  font-size: 22px; font-weight: 600; letter-spacing: -0.02em;
+  font-size: 28px; font-weight: 600; letter-spacing: -0.02em;
   margin: 0 0 6px;
 }
-.han { color: var(--text-3); font-weight: 400; font-size: 14px; margin-left: 6px; }
+.han { color: var(--text-3); font-weight: 400; font-size: 16px; margin-left: 6px; }
 .role { color: var(--text-2); font-size: 14px; margin: 0 0 2px; }
 .aff  { color: var(--text-2); font-size: 14px; margin: 0 0 18px; }
 .email {
@@ -386,9 +386,9 @@ main > h2, .publication-page h2 { margin: 40px 0 22px; padding-bottom: 12px; bor
 .back-link { font-size: 12px; margin-bottom: 24px; }
 .text-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; }
 @media (max-width: 860px) {
-  .profile-sidebar { display: grid; grid-template-columns: 104px minmax(0,1fr); column-gap: 24px; }
+  .profile-sidebar { display: grid; grid-template-columns: 128px minmax(0,1fr); column-gap: 24px; }
   .profile-sidebar > a { grid-column: 1; grid-row: 1 / 5; }
-  .profile-sidebar .avatar { margin-bottom: 0; }
+  .profile-sidebar .avatar { width: 128px; height: 128px; margin-bottom: 0; }
   .profile-sidebar .name, .profile-sidebar .role, .profile-sidebar .aff, .profile-sidebar .email { grid-column: 2; }
   .profile-sidebar .aff { margin-bottom: 8px; }
   .profile-sidebar .email { margin-bottom: 12px; }
@@ -399,9 +399,9 @@ main > h2, .publication-page h2 { margin: 40px 0 22px; padding-bottom: 12px; bor
 }
 @media (max-width: 520px) {
   .layout { padding: 64px 20px 40px; gap: 38px; }
-  .profile-sidebar { grid-template-columns: 80px minmax(0,1fr); column-gap: 18px; }
-  .avatar { width: 80px; height: 80px; }
-  .name { font-size: 21px; }
+  .profile-sidebar { grid-template-columns: 104px minmax(0,1fr); column-gap: 18px; }
+  .profile-sidebar .avatar { width: 104px; height: 104px; }
+  .name { font-size: 24px; }
   .han { display: inline-block; margin-left: 4px; }
   .role, .aff { font-size: 12px; }
   .email { font-size: 10px; }
