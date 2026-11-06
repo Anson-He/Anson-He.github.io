@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>He Yuhao — HYH</title>
+  <rect width="64" height="64" rx="12" fill="#224b8d"/>
+  <g fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M8 19V45M19 19V45M8 32H19"/>
+    <path d="M26 19 32 31 38 19M32 31V45"/>
+    <path d="M45 19V45M56 19V45M45 32H56"/>
+  </g>
+</svg>
