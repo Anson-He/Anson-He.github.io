@@ -412,7 +412,7 @@ main > h2, .publication-page h2 { margin: 40px 0 22px; padding-bottom: 12px; bor
   .section-head h2 { font-size: 11px; letter-spacing: .09em; }
   .publication-row { grid-template-columns: 1fr; gap: 16px; }
   .publication-row__figure { max-width: 100%; }
-  .publication-row__figure img { max-height: 200px; object-fit: contain; object-position: left; width: auto; max-width: 100%; }
+  .publication-row__figure img { max-height: 180px; object-fit: contain; object-position: left; width: auto; max-width: 100%; }
   .news-list li { grid-template-columns: 1fr; gap: 4px; }
   .experience-row, .education-row { grid-template-columns: 36px minmax(0,1fr); gap: 12px; }
   .experience-row__logo, .education-row__logo { width: 36px; height: 36px; }
@@ -515,4 +515,23 @@ pre { font-size: 12px; }
   .experience-row__logo, .education-row__logo { width: 60px; height: 60px; padding: 5px; }
   .publication-row__title { font-size: 17px; }
   .news-list li { font-size: 15px; }
+}
+
+/* Keep a compact news archive that also supports keyboard scrolling. */
+.news-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.news-scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.news-scroll::-webkit-scrollbar { width: 6px; }
+.news-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
 }

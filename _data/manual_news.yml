@@ -1,3 +1,11 @@
 # Optional curated updates. These are preserved when publications sync.
 - date: "2026.09"
   text: "🎉 One paper is accepted by NeurIPS 2026"
+- date: "2026.08"
+  text: "💻 Updated code for Deferred Poisoning (AAAI 2026) is available."
+  url: "https://github.com/Anson-He/Deferred-Poisoning-Attack"
+  label: "Code"
+- date: "2021.12"
+  text: "🚀 Code for TFA-CLSTMNN is available."
+  url: "https://github.com/Anson-He/TFA-CLSTMNN-Novel-convolutional-network-for-sound-based-diagnosis-of-COVID-19"
+  label: "Code"

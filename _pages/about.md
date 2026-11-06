@@ -28,12 +28,14 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <div class="section-head"><h2>News</h2><span class="section-rule" aria-hidden="true"></span></div>
 
+<div class="news-scroll" role="region" aria-label="Latest news" tabindex="0">
 <ul class="news-list">
 {% assign combined_news = site.data.auto_news | concat: site.data.manual_news | sort: "date" | reverse %}
 {% for item in combined_news %}
   <li><span class="date">{{ item.date }}</span><div>{{ item.text }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</div></li>
 {% endfor %}
 </ul>
+</div>
 
 </section>
 
