@@ -554,8 +554,14 @@ pre { font-size: 12px; }
   background: var(--border-strong);
   border-radius: 3px;
 }
-@media (max-width: 520px) {
-  .publication-scroll { max-height: 70vh; }
+/* Avoid nested scroll traps on narrow screens and touch-first devices. */
+@media (max-width: 860px), (hover: none) and (pointer: coarse) {
+  .news-scroll,
+  .publication-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 2px;
+  }
 }
 @media print {
   .publication-scroll { max-height: none; overflow: visible; padding: 0; }
