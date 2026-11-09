@@ -15,6 +15,18 @@
   if (media.addEventListener) media.addEventListener('change', onChange);
   sync();
 
+  // Record homepage geography separately; keep the existing footer counter.
+  if (location.hostname === 'anson-he.github.io' && location.pathname === '/') {
+    const pixel = document.createElement('img');
+    pixel.width = pixel.height = 1;
+    pixel.alt = '';
+    pixel.setAttribute('aria-hidden', 'true');
+    pixel.referrerPolicy = 'strict-origin-when-cross-origin';
+    pixel.style.cssText = 'position:absolute;width:1px;height:1px;clip-path:inset(50%);pointer-events:none';
+    pixel.src = 'https://mapmyvisitors.com/map.png?d=JQ7xDV9MOIq0bVAxXor5ANJuvsUyD_WFlK9RVL8SlHI&cl=ffffff';
+    document.body.appendChild(pixel);
+  }
+
   // Use Vercount's JSON API; no third-party script executes in this page.
   const stats = document.querySelector('.visitors');
   if (!stats) return;
