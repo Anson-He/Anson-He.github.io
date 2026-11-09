@@ -15,70 +15,52 @@
   if (media.addEventListener) media.addEventListener('change', onChange);
   sync();
 
-  // Keep third-party JSONP isolated from the homepage and its browser storage.
+  // Use Vercount's JSON API; no third-party script executes in this page.
   const stats = document.querySelector('.visitors');
   if (!stats) return;
   const pv = document.getElementById('busuanzi_value_site_pv');
   const uv = document.getElementById('busuanzi_value_site_uv');
-  const retry = document.createElement('button');
-  retry.type = 'button';
-  retry.textContent = 'Retry';
-  retry.hidden = true;
-  retry.setAttribute('aria-label', 'Retry loading visitor statistics');
-  retry.style.cssText = 'font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:4px;padding:1px 6px;cursor:pointer';
-  stats.appendChild(retry);
-  let frame;
-  let timer;
-  let onCounter;
-  let finished = false;
-  const cleanup = () => {
-    clearTimeout(timer);
-    if (onCounter) window.removeEventListener('message', onCounter);
-    frame?.remove();
-  };
   const unavailable = () => {
-    if (finished) return;
-    finished = true;
-    cleanup();
     pv.textContent = uv.textContent = '—';
     stats.setAttribute('aria-busy', 'false');
-    stats.setAttribute('title', 'Visitor statistics could not be loaded. The service or connection may be unavailable; use Retry to try again.');
-    retry.hidden = location.hostname !== 'anson-he.github.io';
+    stats.setAttribute('title', 'Visitor statistics are temporarily unavailable.');
   };
-  const loadCounter = () => {
-    cleanup();
-    finished = false;
-    retry.hidden = true;
-    pv.textContent = uv.textContent = '…';
-    stats.setAttribute('aria-busy', 'true');
-    stats.removeAttribute('title');
-    if (location.hostname !== 'anson-he.github.io') { unavailable(); return; }
-    frame = document.createElement('iframe');
-    frame.src = '/assets/visitor-counter.html?v=20261109-retry';
-    frame.setAttribute('sandbox', 'allow-scripts');
-    frame.setAttribute('aria-hidden', 'true');
-    frame.setAttribute('title', 'Isolated visitor counter');
-    frame.tabIndex = -1;
-    // Keep it loadable in browsers that defer display:none frames.
-    frame.style.cssText = 'position:absolute;width:1px;height:1px;border:0;clip-path:inset(50%);pointer-events:none';
-    onCounter = event => {
-      if (event.source !== frame.contentWindow || event.origin !== 'null') return;
-      const value = event.data;
-      if (value?.type === 'site-counter-error-v1') { unavailable(); return; }
-      if (value?.type !== 'site-counter-result-v1' ||
-          !/^\d{1,20}$/.test(String(value.pv)) || !/^\d{1,20}$/.test(String(value.uv))) return;
-      pv.textContent = String(value.pv);
-      uv.textContent = String(value.uv);
+  if (location.hostname !== 'anson-he.github.io') { unavailable(); return; }
+  const cookieName = 'vercount_uv_' + location.host.replace(/[^a-zA-Z0-9_-]/g, '_');
+  let isNewUv = true;
+  try {
+    isNewUv = !document.cookie.split(';').some(value => value.trim() === cookieName + '=1');
+  } catch (e) {}
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  const loadCounter = async () => {
+    try {
+      const response = await fetch('https://events.vercount.one/api/v2/log', {
+        method: 'POST',
+        credentials: 'omit',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: location.origin + location.pathname, isNewUv }),
+        signal: controller.signal
+      });
+      if (!response.ok) throw new Error('Counter request failed');
+      const result = await response.json();
+      const counts = result.data;
+      if (result.status !== 'success' || !counts ||
+          !/^\d{1,20}$/.test(String(counts.site_pv)) ||
+          !/^\d{1,20}$/.test(String(counts.site_uv))) throw new Error('Invalid counter response');
+      pv.textContent = String(counts.site_pv);
+      uv.textContent = String(counts.site_uv);
       stats.setAttribute('aria-busy', 'false');
       stats.removeAttribute('title');
-      finished = true;
-      cleanup();
-    };
-    window.addEventListener('message', onCounter);
-    frame.onerror = unavailable;
-    timer = setTimeout(unavailable, 22000);
-    document.body.appendChild(frame);
+      // Match the provider's first-party UV cookie, only after a successful count.
+      if (isNewUv) {
+        try { document.cookie = cookieName + '=1; path=/; max-age=31536000; samesite=lax; secure'; } catch (e) {}
+      }
+    } catch (e) {
+      unavailable();
+    } finally {
+      clearTimeout(timeout);
+    }
   };
-  retry.addEventListener('click', loadCounter);
   loadCounter();
 })();
