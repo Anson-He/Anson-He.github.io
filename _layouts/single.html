@@ -2,7 +2,10 @@
 layout: default
 ---
 
-{% if page.collection == "publications" %}
+{% if page.visible == false %}
+<p>This publication is not yet publicly available.</p>
+<p><a href="{{ '/#publications' | relative_url }}">Back to publications</a></p>
+{% elsif page.collection == "publications" %}
 <article class="publication-page">
   <p class="back-link"><a href="{{ '/#publications' | relative_url }}">← Back to publications</a></p>
   <h1>{{ page.title }}</h1>

@@ -13,7 +13,9 @@ image: "/images/publications/escape-the-context-manifold-insight.png"
 image_alt: "Conditional Flow Hijacking redirects context steering away from the reference-consistent manifold."
 links: [{"label": "Paper", "url": "https://openreview.net/forum?id=06nMkjyRaB"}, {"label": "Code", "url": "https://github.com/Anson-He/Escape-the-Context-Manifold"}, {"label": "NeurIPS", "url": "https://neurips.cc/virtual/2026/poster/156139"}]
 citation: "<strong>Y. H. He</strong>, J. Y. Tian, &ldquo;Escape the Context Manifold: Preventing DiT In-Context Editing via Conditional Flow Hijacking&rdquo;, <i>NeurIPS 2026</i>."
-visible: true
+visible: false
+sitemap: false
+publication_hold: "Keep hidden until the full paper or PDF is publicly accessible; abstract and code availability alone are insufficient."
 generated_by: curated
 source_url: "https://neurips.cc/virtual/2026/poster/156139"
 bibtex: |-
