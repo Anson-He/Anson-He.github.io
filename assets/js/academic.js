@@ -26,6 +26,9 @@
     });
   };
   if (location.hostname !== 'anson-he.github.io') { unavailable(); return; }
+  // Owner devices hold a private dashboard connection on this origin.
+  // Keep third-party counter code off those devices; public visitor behavior is unchanged.
+  try { if (localStorage.getItem('github-traffic-owner') === 'Anson-He') { unavailable(); return; } } catch (e) {}
   const script = document.createElement('script');
   script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
   script.async = true;
