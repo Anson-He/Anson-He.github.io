@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Yuhao He"
+description: "Yuhao He (何宇浩) is a Ph.D. student at Macau University of Science and Technology researching trustworthy AI and generative content security."
 permalink: /
 redirect_from:
   - /about/
@@ -12,7 +13,7 @@ redirect_from:
 
 <div class="section-head"><h2>About</h2><span class="section-rule" aria-hidden="true"></span></div>
 
-I was born in Jiangmen, Guangdong, China, in 2001. I am currently a Ph.D. student in Artificial Intelligence (expected graduation: 2028.06) in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/).
+I am a Ph.D. student in Artificial Intelligence (expected graduation: 2028.06) in the [Faculty of Innovation Engineering](https://www.must.edu.mo/en/fie) at the [Macau University of Science and Technology](https://www.must.edu.mo/en), under the supervision of Prof. [Jinyu Tian](https://jinyutian.github.io/). <span data-nosnippet>I was born in Jiangmen, Guangdong, China, in 2001.</span>
 
 My research works toward secure and trustworthy AI, with a particular interest in **protecting visual content from malicious generative editing**. My current research directions include:
 
