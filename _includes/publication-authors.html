@@ -1,0 +1,7 @@
+{%- assign displayed_authors = include.authors | escape | replace_first: "Yuhao He", "<strong>Yuhao He</strong>" -%}
+{%- for corresponding_author in include.corresponding_authors -%}
+  {%- assign escaped_name = corresponding_author | escape -%}
+  {%- capture marked_name -%}{{ escaped_name }}<sup title="Corresponding author" aria-label="Corresponding author">*</sup>{%- endcapture -%}
+  {%- assign displayed_authors = displayed_authors | replace_first: escaped_name, marked_name -%}
+{%- endfor -%}
+{{- displayed_authors -}}
