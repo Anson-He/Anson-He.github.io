@@ -33,7 +33,7 @@
     "description": "This work introduces the Deferred Poisoning Attack, which makes a trained model highly sensitive to evasion attacks or natural noise while maintaining apparently normal behavior during training and validation. The method uses singularization regularization to reshape local curvature near the optimum.",
     "links": [
       {"label": "Paper", "url": "https://doi.org/10.1609/aaai.v40i26.39318"},
-      {"label": "arXiv", "url": "https://arxiv.org/abs/2411.03752"},
+      {"label": "Poster", "url": "/files/posters/aaai-2026-deferred-poisoning.pdf"},
       {"label": "Code", "url": "https://github.com/Anson-He/Deferred-Poisoning-Attack"},
       {"label": "MUST News", "url": "https://sgs.must.edu.mo/news.school.news/article/view/id-39098.html"},
       {"label": "DBLP", "url": "https://dblp.org/rec/conf/aaai/HeTZDLZ26"}

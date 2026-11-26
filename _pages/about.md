@@ -29,14 +29,12 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <div class="section-head"><h2>News</h2><span class="section-rule" aria-hidden="true"></span></div>
 
-<div class="news-scroll" role="region" aria-label="Latest news" tabindex="0">
 <ul class="news-list">
 {% assign combined_news = site.data.auto_news | concat: site.data.manual_news | sort: "date" | reverse %}
 {% for item in combined_news %}
   <li><span class="date">{{ item.date }}</span><div>{{ item.text | replace: 'NeurIPS 2026', '<strong>NeurIPS 2026</strong>' | replace: 'AAAI 2026', '<strong>AAAI 2026</strong>' }}{% if item.url %} <a href="{{ item.url }}">[{{ item.label | default: "Link" }}]</a>{% endif %}</div></li>
 {% endfor %}
 </ul>
-</div>
 
 </section>
 
@@ -44,7 +42,6 @@ My research works toward secure and trustworthy AI, with a particular interest i
 
 <div class="section-head"><h2>Publications</h2><span class="section-rule" aria-hidden="true"></span></div>
 
-<div class="publication-scroll" role="region" aria-label="Publications" tabindex="0">
 <div class="publication-list">
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 {% for post in sorted_publications %}
@@ -52,7 +49,6 @@ My research works toward secure and trustworthy AI, with a particular interest i
   {% include jemdoc-publication.html publication=post %}
   {% endunless %}
 {% endfor %}
-</div>
 </div>
 
 <p class="more-link">Complete publication records: <a href="https://scholar.google.com/citations?user=Ug6Zp5IAAAAJ">Google Scholar</a> · <a href="https://dblp.org/pid/257/8328-1.html">DBLP</a> · <a href="{{ '/publications/' | relative_url }}">Publication archive</a></p>
